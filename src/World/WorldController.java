@@ -1,3 +1,11 @@
+package World;
+
+import java.util.*;
+import World.Effects.*;
+import World.Obstacles.*;
+import World.Mobs.*;
+import World.Tiles.*;
+
 public class WorldController {
 
   // The current instance of the WorldController
@@ -12,5 +20,8 @@ public class WorldController {
     this.tiles = new int[mapWidth][mapHeight];
     this.obstacles = new ArrayList<AbstractObstacle>();
     this.mobs = new ArrayList<AbstractMob>();
+
+    // Instantiate the global instance of the controller to this one.
+    WorldController._instance = this;
   }
 }

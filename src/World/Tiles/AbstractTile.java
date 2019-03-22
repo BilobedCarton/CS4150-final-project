@@ -1,5 +1,10 @@
+package World.Tiles;
+
+import World.Effects.AbstractEffect;
+import java.util.List;
+
 public abstract class AbstractTile {
-  private constant int ID_COUNTER = 0;
+  private static int ID_COUNTER = 0;
 
   private final int ID;
   private List<AbstractEffect> effects;
