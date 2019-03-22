@@ -8,4 +8,7 @@ public abstract class AbstractEffect {
   public AbstractEffect() {
     this.ID = ID_COUNTER++;
   }
+
+  // Applies the effect to the agents in the given location.
+  public abstract void applyEffect(int x, int y);
 }
