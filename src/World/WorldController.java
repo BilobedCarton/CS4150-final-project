@@ -20,9 +20,11 @@ public class WorldController {
   // Reference to sketch so we can do certain draw actions here.
   public PApplet sketch;
 
+  // This is in number of terrain cells (not pixels)
+  public int mapWidth;
+  public int mapHeight;
+
   // 2D list of tile IDs designating the tile type of each pair of coordinates
-  private int mapWidth;
-  private int mapHeight;
   private int[][] tiles;
   private List<AbstractObstacle> obstacles;
   private List<MobPrototype> mobPrototypes;
@@ -58,7 +60,11 @@ public class WorldController {
           sketch.fill(0);
           sketch.stroke(0);
         }
-        sketch.rect(x * 20, y * 20, (x + 1) * 20, (y + 1) * 20);
+        sketch.rect(
+                x * sketch.width / mapWidth,
+                y * sketch.height / mapHeight,
+                (x + 1) * sketch.width / mapWidth,
+                (y + 1) * sketch.height / mapHeight);
       }
     }
   }

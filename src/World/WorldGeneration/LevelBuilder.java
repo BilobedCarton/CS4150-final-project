@@ -8,8 +8,8 @@ import World.Tiles.TileType;
 import World.WorldController;
 
 public class LevelBuilder {
-  private static int levelWidth = 3;
-  private static int levelHeight = 3;
+  private static int templateWidth = 5;
+  private static int templateHeight = 5;
   private static int numTemplatesPerType = 1;
 
   RoomTemplate[][] roomTemplates;
@@ -30,15 +30,16 @@ public class LevelBuilder {
     // Read a text file containing data representing room templates and then create representations and add them to our list
 
     // TEMP
-    boolean[][] centerLayout = new boolean[10][10];
-    boolean[][] cornerLayout = new boolean[10][10];
-    boolean[][] edgeLayout = new boolean[10][10];
-    for(int i = 0; i < 10; i++) {
-      for(int j = 0 ; j < 10; j++) {
+    boolean[][] centerLayout = new boolean[templateWidth][templateHeight];
+    boolean[][] cornerLayout = new boolean[templateWidth][templateHeight];
+    boolean[][] edgeLayout = new boolean[templateWidth][templateHeight];
+    for(int i = 0; i < templateWidth; i++) {
+      for(int j = 0 ; j < templateHeight; j++) {
         centerLayout[i][j] = true;
         cornerLayout[i][j] = true;
         edgeLayout[i][j] = true;
-        if((i == 5 || i == 6) && (j == 5 || j == 6)) {
+        if((i == templateWidth / 2 || i == templateWidth / 2 + 1)
+                && (j == templateHeight / 2 || j == templateHeight / 2 + 1)) {
           centerLayout[i][j] = false;
         }
         if(i == 0 || j == 0) {
@@ -55,15 +56,17 @@ public class LevelBuilder {
   }
 
   private boolean[][] getFloorMap() {
-    boolean[][] map = new boolean[levelWidth * 10][levelHeight * 10];
-    for(int i = 0; i < levelWidth; i++) {
-      for(int j = 0; j < levelHeight; j++) {
+    boolean[][] map = new boolean[WorldController._instance.mapWidth][WorldController._instance.mapHeight];
+    for(int i = 0; i < WorldController._instance.mapWidth / templateWidth; i++) {
+      for(int j = 0; j < WorldController._instance.mapHeight / templateHeight; j++) {
         RoomTemplate.RoomType type;
-        if(i != 0 && i != levelWidth - 1 && j != 0 && j != levelHeight - 1) {
+        if(i != 0 && i != WorldController._instance.mapWidth / templateWidth - 1
+                && j != 0 && j != WorldController._instance.mapHeight / templateHeight - 1) {
           // CENTER
           type = RoomTemplate.RoomType.CENTER;
         }
-        else if((i == 0 || i == levelWidth - 1) && (j == 0 || j == levelHeight - 1)) {
+        else if((i == 0 || i == WorldController._instance.mapWidth / templateWidth - 1)
+                && (j == 0 || j == WorldController._instance.mapHeight / templateHeight - 1)) {
           // CORNER
           type = RoomTemplate.RoomType.CORNER;
         }
@@ -74,9 +77,9 @@ public class LevelBuilder {
         boolean[][] floorSection = rotateRoomTemplate(
                 roomTemplates[type.getValue()][rand.nextInt(numTemplatesPerType)],
                 rand.nextInt(4));
-        for(int x = 0; x < 10; x++) {
-          for(int y = 0; y < 10; y++) {
-            map[x + (i * 10)][y + (j * 10)] = floorSection[x][y];
+        for(int x = 0; x < templateWidth; x++) {
+          for(int y = 0; y < templateHeight; y++) {
+            map[x + (i * templateWidth)][y + (j * templateHeight)] = floorSection[x][y];
           }
         }
       }
@@ -85,9 +88,9 @@ public class LevelBuilder {
   }
 
   private int[][] assignTileTypes(boolean[][] floorMap, List<TileType> tileTypes) {
-    int[][] tileMap = new int[levelWidth * 10][levelHeight * 10];
-    for(int i = 0; i < levelWidth * 10; i++) {
-      for(int j = 0; j < levelHeight * 10; j++) {
+    int[][] tileMap = new int[WorldController._instance.mapWidth][WorldController._instance.mapHeight];
+    for(int i = 0; i < WorldController._instance.mapWidth; i++) {
+      for(int j = 0; j < WorldController._instance.mapHeight; j++) {
         if(floorMap[i][j] != true) {
           tileMap[i][j] = -1;
         }
@@ -129,7 +132,7 @@ public class LevelBuilder {
     orientation = orientation % 4;
     boolean[][] templateLayout = template.floorSpace.clone();
     for(int i = 0; i < orientation; i++) {
-      rotateMatrix(10, templateLayout);
+      rotateMatrix(templateWidth, templateLayout);
     }
     return templateLayout;
   }

@@ -4,11 +4,14 @@ import processing.core.PApplet;
 public class Sketch extends PApplet {
 
   public static String seed = "";
+  // This is in terrain cells (not pixels)
+  private static int MAP_WIDTH = 30;
+  private static int MAP_HEIGHT = 30;
   private static WorldController wc;
 
   public void settings() {
     size(600, 600);
-    wc = new WorldController(30, 30, seed, this);
+    wc = new WorldController(MAP_WIDTH, MAP_HEIGHT, seed, this);
   }
 
   public void draw() {
