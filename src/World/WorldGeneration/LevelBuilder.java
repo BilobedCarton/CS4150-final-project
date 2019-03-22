@@ -97,34 +97,40 @@ public class LevelBuilder {
         else {
           int[] tileProbabilities = new int[tileTypes.size()];
           for (int k = 0; k < tileTypes.size(); k++) {
-            tileProbabilities[k] = 10;
+            tileProbabilities[k] = tileTypes.get(k).getWeightedChance();
           }
-          int extraMods = 0;
           if (i > 0 && j > 0) {
             if(tileMap[i - 1][j] >= 0) {
-              tileProbabilities[tileMap[i - 1][j]] += 5;
-              extraMods += 5;
+              tileProbabilities[tileMap[i - 1][j]] += tileTypes.get(tileMap[i - 1][j]).getWeightedChance();
             }
             if(tileMap[i - 1][j - 1] >= 0) {
-              tileProbabilities[tileMap[i - 1][j - 1]] += 5;
-              extraMods += 5;
+              tileProbabilities[tileMap[i - 1][j - 1]] += tileTypes.get(tileMap[i - 1][j - 1]).getWeightedChance();;
             }
             if(tileMap[i][j - 1] >= 0) {
-              tileProbabilities[tileMap[i][j - 1]] += 5;
-              extraMods += 5;
+              tileProbabilities[tileMap[i][j - 1]] += tileTypes.get(tileMap[i][j - 1]).getWeightedChance();;
             }
           }
-          int choice = rand.nextInt(extraMods + (10 * (tileTypes.size())));
+          int choice = rand.nextInt(sum(tileProbabilities));
           for (int k = 0; k < tileTypes.size(); k++) {
             choice -= tileProbabilities[k];
             if (choice <= 0) {
               tileMap[i][j] = k;
+              break;
             }
           }
         }
       }
     }
     return tileMap;
+  }
+
+  // helper function to sum an array of ints
+  private int sum (int[] arr) {
+    int sum = 0;
+    for(int i : arr) {
+      sum += i;
+    }
+    return sum;
   }
 
   // Orientation: 0 - no rotation, 1 - counterclockwise 90 degrees, 2 - reversed, 3 - clockwise 90 degrees

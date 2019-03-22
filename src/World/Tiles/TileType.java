@@ -8,20 +8,20 @@ import java.util.List;
 
 public class TileType {
   private static int ID_COUNTER = 0;
-  public static ArrayList<TileType> _tileTypes = new ArrayList<>();
 
   public final int ID;
   private String name;
   private List<AbstractEffect> effects;
   private Color color;
+  // this is out of 100.
+  private int weightedChance;
 
-  public TileType(String name, List<AbstractEffect> effects, Color color) {
+  public TileType(String name, List<AbstractEffect> effects, Color color, int weightedChance) {
     this.ID = ID_COUNTER++;
     this.name = name;
     this.effects = effects;
     this.color = color;
-
-    _tileTypes.add(this);
+    this.weightedChance = weightedChance;
   }
 
   public String getName() {
@@ -34,5 +34,9 @@ public class TileType {
 
   public Color getColor() {
     return color;
+  }
+
+  public int getWeightedChance() {
+    return weightedChance;
   }
 }

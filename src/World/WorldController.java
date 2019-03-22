@@ -72,6 +72,9 @@ public class WorldController {
   // Generates the TileType objects we use to represent types of terrain
   private void generateTileTypes() {
     // Stub
-    this.tileTypes.add(new TileType("Floor", null, Color.white));
+    this.tileTypes.add(new TileType("Dirt", null, Color.GRAY, 20));
+    this.tileTypes.add(new TileType("Water", null, Color.blue, 10));
+    this.tileTypes.add(new TileType("Grass", null, Color.GREEN.darker(), 40));
+    this.tileTypes.add(new TileType("Sand", null, Color.ORANGE.brighter().brighter(), 30));
   }
 }
