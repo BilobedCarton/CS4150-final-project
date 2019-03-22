@@ -26,7 +26,7 @@ public class WorldController {
 
   // 2D list of tile IDs designating the tile type of each pair of coordinates
   private int[][] tiles;
-  private List<AbstractObstacle> obstacles;
+  private List<ObstaclePrototype> obstacles;
   private List<MobPrototype> mobPrototypes;
   private List<TileType> tileTypes;
 
