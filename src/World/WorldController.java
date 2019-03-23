@@ -94,8 +94,9 @@ public class WorldController {
     // Stub
     double chance = 1 / 3.0;
     this.tileTypes.add(new TileType("Wall", null, Color.black, 0));
-    this.tileTypes.add(new TileType("Dirt", null, Color.GRAY, chance));
-    this.tileTypes.add(new TileType("Water", null, Color.blue, chance));
-    this.tileTypes.add(new TileType("Lava", null, Color.RED.darker(), chance));
+    this.tileTypes.add(new TileType("Dirt", null, Color.GRAY, 0.3));
+    this.tileTypes.add(new TileType("Water", null, Color.blue, 0.25));
+    this.tileTypes.add(new TileType("Lava", null, Color.RED.darker(), 0.25));
+    this.tileTypes.add(new TileType("Grass", null, Color.green.darker(), 0.2));
   }
 }

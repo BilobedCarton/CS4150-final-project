@@ -84,23 +84,30 @@ public class LevelBuilder {
         }
       }
     }
-    double[][][] firstPassProbabilities = tileTypeProbabilities.clone();
     for(int x = 0; x < width; x++) {
       for(int y = 0; y < height; y++) {
-        /*for(int k = 1; k < tileTypes.size(); k++) {
-          for(int neighborX = x - 1; neighborX <= x + 1; neighborX++) {
-            for(int neighborY = y - 1; neighborY <= y + 1; neighborY++) {
-              if(neighborX >= 0 && neighborX < width && neighborY >= 0 && neighborY < height) {
-                if (neighborX != x || neighborY != y) {
-                  tileTypeProbabilities[x][y][k] += firstPassProbabilities[neighborX][neighborY][k];
-                }
-              }
-            }
-          }
-        }*/
         if(map[x][y] > 0) {
           tileTypeProbabilities[x][y][0] = 0;
-          tileTypeProbabilities[x][y] = normalize(tileTypeProbabilities[x][y]);
+          tileTypeProbabilities[x][y] = normalize(tileTypeProbabilities[x][y].clone());
+          float choice = rand.nextFloat();
+          for (int k = 1; k < tileTypes.size(); k++) {
+            choice -= tileTypeProbabilities[x][y][k];
+            if (choice <= 0) {
+              map[x][y] = k;
+              break;
+            }
+          }
+        }
+      }
+    }
+    for(int x = 0; x < width; x++) {
+      for(int y = 0; y < height; y++) {
+        for(int k = 1; k < tileTypes.size(); k++) {
+          tileTypeProbabilities[x][y][k] += getSurroundingTileCount(k, x, y) * tileTypes.get(k).getWeightedChance();
+        }
+        if(map[x][y] > 0) {
+          tileTypeProbabilities[x][y][0] = 0;
+          tileTypeProbabilities[x][y] = normalize(tileTypeProbabilities[x][y].clone());
           float choice = rand.nextFloat();
           for (int k = 1; k < tileTypes.size(); k++) {
             choice -= tileTypeProbabilities[x][y][k];
@@ -144,7 +151,7 @@ public class LevelBuilder {
 
   // helper function to sum an array of ints
   private double[] normalize(double[] arr) {
-    int sum = 0;
+    double sum = 0;
     for(double a : arr) {
       sum += a;
     }
