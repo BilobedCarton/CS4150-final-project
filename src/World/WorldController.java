@@ -23,6 +23,7 @@ public class WorldController {
   // This is in number of terrain cells (not pixels)
   public int mapWidth;
   public int mapHeight;
+  public int cellDimension;
 
   // 2D list of tile IDs designating the tile type of each pair of coordinates
   private int[][] tiles;
@@ -30,21 +31,25 @@ public class WorldController {
   private List<MobPrototype> mobPrototypes;
   private List<TileType> tileTypes;
 
-  public WorldController(int mapWidth, int mapHeight, String seed, PApplet sketch) {
+  public WorldController(int mapWidth, int mapHeight, int cellDimension, Random rand, PApplet sketch) {
     this.mapWidth = mapWidth;
     this.mapHeight = mapHeight;
+    this.cellDimension = cellDimension;
     this.sketch = sketch;
     this.tiles = new int[mapWidth][mapHeight];
-    this.rand = new Random(seed.hashCode());
+    this.rand = rand;
     this.obstacles = new ArrayList<>();
     this.mobPrototypes = new ArrayList<>();
     this.tileTypes = new ArrayList<>();
 
     // Instantiate the global instance of the controller to this one.
     WorldController._instance = this;
+  }
 
+  public void setup() {
     // begin world generation:
     LevelBuilder levelBuilder = new LevelBuilder(this.rand);
+    this.tiles = levelBuilder.map;
     this.generateTileTypes();
     this.tiles = levelBuilder.buildLevel(this.tileTypes).clone();
   }
@@ -52,19 +57,19 @@ public class WorldController {
   public void draw() {
     for(int x = 0; x < this.mapWidth; x++) {
       for(int y = 0; y < this.mapHeight; y++) {
-        if(tiles[x][y] >= 0) {
-          Color c = tileTypes.get(tiles[x][y]).getColor();
-          sketch.fill(c.getRed(), c.getGreen(), c.getBlue());
-          sketch.stroke(c.getRed(), c.getGreen(), c.getBlue());
+        if(tiles[x][y] == 0) {
+          //Color c = tileTypes.get(tiles[x][y]).getColor();
+          sketch.fill(100);
+          sketch.stroke(100);
         } else {
           sketch.fill(0);
           sketch.stroke(0);
         }
         sketch.rect(
-                x * sketch.width / mapWidth,
-                y * sketch.height / mapHeight,
-                (x + 1) * sketch.width / mapWidth,
-                (y + 1) * sketch.height / mapHeight);
+                x * cellDimension,
+                y * cellDimension,
+                (x + 1) * cellDimension,
+                (y + 1) * cellDimension);
       }
     }
   }
@@ -72,6 +77,7 @@ public class WorldController {
   // Generates the TileType objects we use to represent types of terrain
   private void generateTileTypes() {
     // Stub
+    this.tileTypes.add(new TileType("Wall", null, Color.black, -1));
     this.tileTypes.add(new TileType("Dirt", null, Color.GRAY, 20));
     this.tileTypes.add(new TileType("Water", null, Color.blue, 10));
     this.tileTypes.add(new TileType("Grass", null, Color.GREEN.darker(), 40));
