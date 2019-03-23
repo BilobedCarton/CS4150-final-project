@@ -22,11 +22,14 @@ public class LevelBuilder {
   }
 
   public int[][] buildLevel(List<TileType> tileTypes) {
-    this.buildSimpleMap(45);
+    this.buildSimpleMap(rand.nextInt(5) + 42);
     for(int i = 0; i < SMOOTH_PASSES; i++) {
-      this.smoothMap();
+      this.smoothMapWalls();
     }
     this.assignTileTypes(tileTypes);
+    for(int j = 0; j < SMOOTH_PASSES / 2; j++) {
+      this.smoothMapTiles(tileTypes);
+    }
     return map;
   }
 
@@ -44,14 +47,14 @@ public class LevelBuilder {
     }
   }
 
-  private void smoothMap() {
+  private void smoothMapWalls() {
     for(int x = 0; x < width; x++) {
       for(int y = 0; y < height; y++) {
         int surroundingWallCount = getSurroundingWallCount(x, y);
         if(surroundingWallCount > 4) {
           map[x][y] = 0;
         }
-        else if (surroundingWallCount < 4){
+        else if (surroundingWallCount < 4) {
           map[x][y] = 1;
         }
       }
@@ -73,37 +76,67 @@ public class LevelBuilder {
   }
 
   private void assignTileTypes(List<TileType> tileTypes) {
-    int[][] tileMap = new int[WorldController._instance.mapWidth][WorldController._instance.mapHeight];
-    for(int i = 0; i < WorldController._instance.mapWidth; i++) {
-      for(int j = 0; j < WorldController._instance.mapHeight; j++) {
-        if(1 == 0) {}
-        else {
-          int[] tileProbabilities = new int[tileTypes.size() - 1];
-          for (int k = 0; k < tileTypes.size() - 1; k++) {
-            tileProbabilities[k] = tileTypes.get(k + 1).getWeightedChance();
+    for(int i = 0; i < width; i++) {
+      for(int j = 0; j < height; j++) {
+        if(map[i][j] != 0) {
+          int[] tileProbabilities = new int[tileTypes.size()];
+          for(int k = 0; k < tileTypes.size(); k++) {
+            tileProbabilities[k] = tileTypes.get(k).getWeightedChance();
           }
           if (i > 0 && j > 0) {
-            if(tileMap[i - 1][j] >= 0) {
-              tileProbabilities[tileMap[i - 1][j] - 1] += tileTypes.get(tileMap[i - 1][j]).getWeightedChance();
+            if(map[i - 1][j] >= 0) {
+              tileProbabilities[map[i - 1][j]] += 3 * tileTypes.get(map[i - 1][j]).getWeightedChance();
             }
-            if(tileMap[i - 1][j - 1] >= 0) {
-              tileProbabilities[tileMap[i - 1][j - 1] - 1] += tileTypes.get(tileMap[i - 1][j - 1]).getWeightedChance();;
+            if(map[i - 1][j - 1] >= 0) {
+              tileProbabilities[map[i - 1][j - 1]] += 3 * tileTypes.get(map[i - 1][j - 1]).getWeightedChance();
             }
-            if(tileMap[i][j - 1] >= 0) {
-              tileProbabilities[tileMap[i][j - 1] - 1] += tileTypes.get(tileMap[i][j - 1]).getWeightedChance();;
+            if(map[i][j - 1] >= 0) {
+              tileProbabilities[map[i][j - 1]] += 3 * tileTypes.get(map[i][j - 1]).getWeightedChance();
+            }
+            if(map[i + 1][j - 1] >= 0) {
+              tileProbabilities[map[i][j - 1]] += 3 * tileTypes.get(map[i][j - 1]).getWeightedChance();
             }
           }
+          tileProbabilities[0] = 0;
           int choice = rand.nextInt(sum(tileProbabilities));
-          for (int k = 0; k < tileTypes.size() - 1; k++) {
+          for (int k = 0; k < tileTypes.size(); k++) {
             choice -= tileProbabilities[k];
             if (choice <= 0) {
-              tileMap[i][j] = k + 1;
+              map[i][j] = k;
               break;
             }
           }
         }
       }
     }
+  }
+
+  private void smoothMapTiles(List<TileType> tileTypes) {
+    for(int x = 0; x < width; x++) {
+      for(int y = 0; y < height; y++) {
+        if(map[x][y] != 0) {
+          for (int i = 1; i < tileTypes.size(); i++) {
+            if (getSurroundingTileCount(i, x, y) > 4) {
+              map[x][y] = i;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  private int getSurroundingTileCount(int tileType, int x, int y) {
+    int count = 0;
+    for(int neighborX = x - 1; neighborX <= x + 1; neighborX++) {
+      for(int neighborY = y - 1; neighborY <= y + 1; neighborY++) {
+        if(neighborX >= 0 && neighborX < width && neighborY >= 0 && neighborY < height) {
+          if ((neighborX != x || neighborY != y) && map[neighborX][neighborY] == tileType) {
+            count++;
+          }
+        }
+      }
+    }
+    return count;
   }
 
   // helper function to sum an array of ints

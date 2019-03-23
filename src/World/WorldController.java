@@ -57,10 +57,10 @@ public class WorldController {
   public void draw() {
     for(int x = 0; x < this.mapWidth; x++) {
       for(int y = 0; y < this.mapHeight; y++) {
-        if(tiles[x][y] == 0) {
-          //Color c = tileTypes.get(tiles[x][y]).getColor();
-          sketch.fill(100);
-          sketch.stroke(100);
+        if(tiles[x][y] != 0) {
+          Color c = tileTypes.get(tiles[x][y]).getColor();
+          sketch.fill(c.getRed(), c.getGreen(), c.getBlue());
+          sketch.stroke(c.getRed(), c.getGreen(), c.getBlue());
         } else {
           sketch.fill(0);
           sketch.stroke(0);
