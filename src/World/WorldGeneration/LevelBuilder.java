@@ -87,7 +87,7 @@ public class LevelBuilder {
     double[][][] firstPassProbabilities = tileTypeProbabilities.clone();
     for(int x = 0; x < width; x++) {
       for(int y = 0; y < height; y++) {
-        for(int k = 1; k < tileTypes.size(); k++) {
+        /*for(int k = 1; k < tileTypes.size(); k++) {
           for(int neighborX = x - 1; neighborX <= x + 1; neighborX++) {
             for(int neighborY = y - 1; neighborY <= y + 1; neighborY++) {
               if(neighborX >= 0 && neighborX < width && neighborY >= 0 && neighborY < height) {
@@ -97,11 +97,8 @@ public class LevelBuilder {
               }
             }
           }
-        }
+        }*/
         if(map[x][y] > 0) {
-          if(x > 2 * width / 3) {
-            System.out.println("break");
-          }
           tileTypeProbabilities[x][y][0] = 0;
           tileTypeProbabilities[x][y] = normalize(tileTypeProbabilities[x][y]);
           float choice = rand.nextFloat();
