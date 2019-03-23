@@ -14,15 +14,15 @@ public class TileType {
   private List<AbstractEffect> effects;
   private Color color;
   // this is out of 100.
-  private int weightedChance;
+  private double weightedChance;
 
-  public TileType(String name, List<AbstractEffect> effects, Color color, int weightedChance) {
+  public TileType(String name, List<AbstractEffect> effects, Color color, double weightedChance) {
     this.ID = ID_COUNTER;
     ID_COUNTER++;
     this.name = name;
     this.effects = effects;
     this.color = color;
-    this.weightedChance = weightedChance;
+    this.weightedChance = Math.abs(weightedChance) % 1.0;
   }
 
   public String getName() {
@@ -37,7 +37,7 @@ public class TileType {
     return color;
   }
 
-  public int getWeightedChance() {
+  public double getWeightedChance() {
     return weightedChance;
   }
 }

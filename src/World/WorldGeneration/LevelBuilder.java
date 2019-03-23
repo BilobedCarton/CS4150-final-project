@@ -27,7 +27,7 @@ public class LevelBuilder {
       this.smoothMapWalls();
     }
     this.assignTileTypes(tileTypes);
-    for(int j = 0; j < SMOOTH_PASSES / 2; j++) {
+    for(int j = 0; j < SMOOTH_PASSES; j++) {
       this.smoothMapTiles(tileTypes);
     }
     return map;
@@ -76,33 +76,39 @@ public class LevelBuilder {
   }
 
   private void assignTileTypes(List<TileType> tileTypes) {
-    for(int i = 0; i < width; i++) {
-      for(int j = 0; j < height; j++) {
-        if(map[i][j] != 0) {
-          int[] tileProbabilities = new int[tileTypes.size()];
-          for(int k = 0; k < tileTypes.size(); k++) {
-            tileProbabilities[k] = tileTypes.get(k).getWeightedChance();
+    double[][][] tileTypeProbabilities = new double[width][height][tileTypes.size()];
+    for(int x = 0; x < width; x++) {
+      for(int y = 0; y < height; y++) {
+        for(int k = 0; k < tileTypes.size(); k++) {
+          tileTypeProbabilities[x][y][k] = tileTypes.get(k).getWeightedChance();
+        }
+      }
+    }
+    double[][][] firstPassProbabilities = tileTypeProbabilities.clone();
+    for(int x = 0; x < width; x++) {
+      for(int y = 0; y < height; y++) {
+        for(int k = 1; k < tileTypes.size(); k++) {
+          for(int neighborX = x - 1; neighborX <= x + 1; neighborX++) {
+            for(int neighborY = y - 1; neighborY <= y + 1; neighborY++) {
+              if(neighborX >= 0 && neighborX < width && neighborY >= 0 && neighborY < height) {
+                if (neighborX != x || neighborY != y) {
+                  tileTypeProbabilities[x][y][k] += firstPassProbabilities[neighborX][neighborY][k];
+                }
+              }
+            }
           }
-          if (i > 0 && j > 0) {
-            if(map[i - 1][j] >= 0) {
-              tileProbabilities[map[i - 1][j]] += 3 * tileTypes.get(map[i - 1][j]).getWeightedChance();
-            }
-            if(map[i - 1][j - 1] >= 0) {
-              tileProbabilities[map[i - 1][j - 1]] += 3 * tileTypes.get(map[i - 1][j - 1]).getWeightedChance();
-            }
-            if(map[i][j - 1] >= 0) {
-              tileProbabilities[map[i][j - 1]] += 3 * tileTypes.get(map[i][j - 1]).getWeightedChance();
-            }
-            if(map[i + 1][j - 1] >= 0) {
-              tileProbabilities[map[i][j - 1]] += 3 * tileTypes.get(map[i][j - 1]).getWeightedChance();
-            }
+        }
+        if(map[x][y] > 0) {
+          if(x > 2 * width / 3) {
+            System.out.println("break");
           }
-          tileProbabilities[0] = 0;
-          int choice = rand.nextInt(sum(tileProbabilities));
-          for (int k = 0; k < tileTypes.size(); k++) {
-            choice -= tileProbabilities[k];
+          tileTypeProbabilities[x][y][0] = 0;
+          tileTypeProbabilities[x][y] = normalize(tileTypeProbabilities[x][y]);
+          float choice = rand.nextFloat();
+          for (int k = 1; k < tileTypes.size(); k++) {
+            choice -= tileTypeProbabilities[x][y][k];
             if (choice <= 0) {
-              map[i][j] = k;
+              map[x][y] = k;
               break;
             }
           }
@@ -140,11 +146,14 @@ public class LevelBuilder {
   }
 
   // helper function to sum an array of ints
-  private int sum (int[] arr) {
+  private double[] normalize(double[] arr) {
     int sum = 0;
-    for(int i : arr) {
-      sum += i;
+    for(double a : arr) {
+      sum += a;
     }
-    return sum;
+    for(int i = 0; i < arr.length; i++) {
+      arr[i] /= sum;
+    }
+    return arr;
   }
 }
