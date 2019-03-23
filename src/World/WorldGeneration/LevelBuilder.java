@@ -103,7 +103,7 @@ public class LevelBuilder {
     for(int x = 0; x < width; x++) {
       for(int y = 0; y < height; y++) {
         for(int k = 1; k < tileTypes.size(); k++) {
-          tileTypeProbabilities[x][y][k] += getSurroundingTileCount(k, x, y) * tileTypes.get(k).getWeightedChance();
+          tileTypeProbabilities[x][y][k] += 3 * getSurroundingTileCount(k, x, y) * tileTypes.get(k).getWeightedChance();
         }
         if(map[x][y] > 0) {
           tileTypeProbabilities[x][y][0] = 0;
