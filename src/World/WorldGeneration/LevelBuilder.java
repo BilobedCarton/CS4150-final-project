@@ -3,6 +3,7 @@ package World.WorldGeneration;
 import java.util.List;
 import java.util.Random;
 
+import World.Obstacles.ObstacleInstance;
 import World.Tiles.TileType;
 import World.WorldController;
 
@@ -12,7 +13,8 @@ public class LevelBuilder {
   private Random rand;
   private int width;
   private int height;
-  public int[][] map;
+  private int[][] map;
+  private List<ObstacleInstance> obstacles;
 
   public LevelBuilder(Random rand) {
     this.rand = rand;
@@ -21,7 +23,15 @@ public class LevelBuilder {
     this.map = new int[this.width][this.height];
   }
 
-  public int[][] buildLevel(List<TileType> tileTypes) {
+  public int[][] getMap() {
+    return map;
+  }
+
+  public List<ObstacleInstance> getObstacles() {
+    return obstacles;
+  }
+
+  public void buildLevel(List<TileType> tileTypes) {
     this.buildSimpleMap(rand.nextInt(5) + 42);
     for(int i = 0; i < SMOOTH_PASSES; i++) {
       this.smoothMapWalls();
@@ -30,7 +40,6 @@ public class LevelBuilder {
     for(int j = 0; j < SMOOTH_PASSES; j++) {
       this.smoothMapTiles(tileTypes);
     }
-    return map;
   }
 
   private void buildSimpleMap(int fillPercent) {

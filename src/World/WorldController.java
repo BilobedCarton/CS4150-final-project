@@ -60,9 +60,10 @@ public class WorldController {
   public void setup() {
     // begin world generation:
     LevelBuilder levelBuilder = new LevelBuilder(this.rand);
-    this.tiles = levelBuilder.map;
     this.generateTileTypes();
-    this.tiles = levelBuilder.buildLevel(this.tileTypes).clone();
+    levelBuilder.buildLevel(this.tileTypes);
+    this.tiles = levelBuilder.getMap();
+    this.obstacles = levelBuilder.getObstacles();
   }
 
   public void draw() {
