@@ -14,6 +14,6 @@ public class CollectibleInstance {
   }
 
   public void draw() {
-    WorldController._instance.collectiblePrototypes.get(collectablePrototypeID).draw();
+    WorldController._instance.collectiblePrototypes.get(collectablePrototypeID).draw(x, y);
   }
 }

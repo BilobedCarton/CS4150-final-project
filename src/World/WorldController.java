@@ -6,6 +6,9 @@ import java.util.List;
 
 import World.Collectibles.CollectibleInstance;
 import World.Collectibles.CollectiblePrototype;
+import World.Collectibles.HealthPotion;
+import World.Collectibles.Treasure;
+import World.Effects.AbstractEffect;
 import World.Obstacles.*;
 import World.Mobs.*;
 import World.Tiles.*;
@@ -57,13 +60,21 @@ public class WorldController {
     WorldController._instance = this;
   }
 
-  public void setup() {
+  public static void reset() {
+    CollectiblePrototype.reset();
+    MobPrototype.reset();
+    AbstractEffect.reset();
+    ObstaclePrototype.reset();
+    TileType.reset();
+    WorldController._instance.setup();
+  }
+
+  private void setup() {
     // begin world generation:
     LevelBuilder levelBuilder = new LevelBuilder(this.rand);
     this.generateTileTypes();
     levelBuilder.buildLevel(this.tileTypes);
     this.tiles = levelBuilder.getMap();
-    this.obstacles = levelBuilder.getObstacles();
   }
 
   public void draw() {
@@ -83,6 +94,9 @@ public class WorldController {
                 (x + 1) * cellDimension,
                 (y + 1) * cellDimension);
       }
+    }
+    for(CollectibleInstance collectibleInstance : collectibles) {
+      collectibleInstance.draw();
     }
   }
 

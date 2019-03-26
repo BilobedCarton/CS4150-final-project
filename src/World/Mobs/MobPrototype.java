@@ -16,6 +16,10 @@ public class MobPrototype {
     this.maxHealth = health;
   }
 
+  public static void reset() {
+    ID_COUNTER = 0;
+  }
+
   public int getID() {
     return ID;
   }

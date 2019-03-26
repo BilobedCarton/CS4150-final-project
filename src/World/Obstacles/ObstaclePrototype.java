@@ -10,6 +10,10 @@ public abstract class ObstaclePrototype {
     ID_COUNTER++;
   }
 
+  public static void reset() {
+    ID_COUNTER = 0;
+  }
+
   public int getID() {
     return ID;
   }
