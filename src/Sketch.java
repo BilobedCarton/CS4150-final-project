@@ -33,6 +33,7 @@ public class Sketch extends PApplet {
   }
 
   public void mouseReleased() {
+    this.wc = new WorldController(MAP_WIDTH / CELL_DIMENSION, MAP_HEIGHT / CELL_DIMENSION, CELL_DIMENSION, rand, this);
     wc.setup();
   }
 
