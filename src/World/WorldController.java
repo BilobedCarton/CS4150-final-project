@@ -4,6 +4,8 @@ import java.awt.*;
 import java.util.*;
 import java.util.List;
 
+import World.Collectibles.CollectibleInstance;
+import World.Collectibles.CollectiblePrototype;
 import World.Obstacles.*;
 import World.Mobs.*;
 import World.Tiles.*;
@@ -25,11 +27,16 @@ public class WorldController {
   public int mapHeight;
   public int cellDimension;
 
+  public List<ObstaclePrototype> obstaclePrototypes;
+  public List<MobPrototype> mobPrototypes;
+  public List<CollectiblePrototype> collectiblePrototypes;
+  public List<TileType> tileTypes;
+
   // 2D list of tile IDs designating the tile type of each pair of coordinates
   private int[][] tiles;
-  private List<ObstaclePrototype> obstacles;
-  private List<MobPrototype> mobPrototypes;
-  private List<TileType> tileTypes;
+  private List<ObstacleInstance> obstacles;
+  private List<MobInstance> mobs;
+  private List<CollectibleInstance> collectibles;
 
   public WorldController(int mapWidth, int mapHeight, int cellDimension, Random rand, PApplet sketch) {
     this.mapWidth = mapWidth;
@@ -38,9 +45,13 @@ public class WorldController {
     this.sketch = sketch;
     this.tiles = new int[mapWidth][mapHeight];
     this.rand = rand;
-    this.obstacles = new ArrayList<>();
+    this.obstaclePrototypes = new ArrayList<>();
     this.mobPrototypes = new ArrayList<>();
+    this.collectiblePrototypes = new ArrayList<>();
     this.tileTypes = new ArrayList<>();
+    this.obstacles = new ArrayList<>();
+    this.mobs = new ArrayList<>();
+    this.collectibles = new ArrayList<>();
 
     // Instantiate the global instance of the controller to this one.
     WorldController._instance = this;
@@ -72,6 +83,10 @@ public class WorldController {
                 (y + 1) * cellDimension);
       }
     }
+  }
+
+  public void placeCollectible(CollectibleInstance collectibleInstance) {
+    this.collectibles.add(collectibleInstance);
   }
 
   // Generates the TileType objects we use to represent types of terrain

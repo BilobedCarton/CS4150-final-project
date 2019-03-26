@@ -6,7 +6,8 @@ public abstract class ObstaclePrototype {
   private final int ID;
 
   public ObstaclePrototype() {
-    this.ID = ID_COUNTER++;
+    this.ID = ID_COUNTER;
+    ID_COUNTER++;
   }
 
   public int getID() {
