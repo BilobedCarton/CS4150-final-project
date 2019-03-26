@@ -32,11 +32,14 @@ public class Sketch extends PApplet {
     wc.draw();
   }
 
+  public void mouseReleased() {
+    wc.setup();
+  }
+
   public static void main(String[] args) {
     String seed = args.length == 0 ? "" : args[0];
     String[] processingArgs = {"Sketch"};
     Sketch sketch = new Sketch(seed);
     PApplet.runSketch(processingArgs, sketch);
   }
-
 }

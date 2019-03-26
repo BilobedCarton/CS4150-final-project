@@ -3,6 +3,7 @@ package World.WorldGeneration;
 import java.util.List;
 import java.util.Random;
 
+import World.Obstacles.ObstacleInstance;
 import World.Tiles.TileType;
 import World.WorldController;
 
@@ -12,7 +13,8 @@ public class LevelBuilder {
   private Random rand;
   private int width;
   private int height;
-  public int[][] map;
+  private int[][] map;
+  private List<ObstacleInstance> obstacles;
 
   public LevelBuilder(Random rand) {
     this.rand = rand;
@@ -21,16 +23,23 @@ public class LevelBuilder {
     this.map = new int[this.width][this.height];
   }
 
-  public int[][] buildLevel(List<TileType> tileTypes) {
+  public int[][] getMap() {
+    return map;
+  }
+
+  public List<ObstacleInstance> getObstacles() {
+    return obstacles;
+  }
+
+  public void buildLevel(List<TileType> tileTypes) {
     this.buildSimpleMap(rand.nextInt(5) + 42);
     for(int i = 0; i < SMOOTH_PASSES; i++) {
       this.smoothMapWalls();
     }
     this.assignTileTypes(tileTypes);
-    for(int j = 0; j < SMOOTH_PASSES / 2; j++) {
+    for(int j = 0; j < SMOOTH_PASSES; j++) {
       this.smoothMapTiles(tileTypes);
     }
-    return map;
   }
 
   private void buildSimpleMap(int fillPercent) {
@@ -76,33 +85,43 @@ public class LevelBuilder {
   }
 
   private void assignTileTypes(List<TileType> tileTypes) {
-    for(int i = 0; i < width; i++) {
-      for(int j = 0; j < height; j++) {
-        if(map[i][j] != 0) {
-          int[] tileProbabilities = new int[tileTypes.size()];
-          for(int k = 0; k < tileTypes.size(); k++) {
-            tileProbabilities[k] = tileTypes.get(k).getWeightedChance();
-          }
-          if (i > 0 && j > 0) {
-            if(map[i - 1][j] >= 0) {
-              tileProbabilities[map[i - 1][j]] += 3 * tileTypes.get(map[i - 1][j]).getWeightedChance();
-            }
-            if(map[i - 1][j - 1] >= 0) {
-              tileProbabilities[map[i - 1][j - 1]] += 3 * tileTypes.get(map[i - 1][j - 1]).getWeightedChance();
-            }
-            if(map[i][j - 1] >= 0) {
-              tileProbabilities[map[i][j - 1]] += 3 * tileTypes.get(map[i][j - 1]).getWeightedChance();
-            }
-            if(map[i + 1][j - 1] >= 0) {
-              tileProbabilities[map[i][j - 1]] += 3 * tileTypes.get(map[i][j - 1]).getWeightedChance();
-            }
-          }
-          tileProbabilities[0] = 0;
-          int choice = rand.nextInt(sum(tileProbabilities));
-          for (int k = 0; k < tileTypes.size(); k++) {
-            choice -= tileProbabilities[k];
+    double[][][] tileTypeProbabilities = new double[width][height][tileTypes.size()];
+    for(int x = 0; x < width; x++) {
+      for(int y = 0; y < height; y++) {
+        for(int k = 0; k < tileTypes.size(); k++) {
+          tileTypeProbabilities[x][y][k] = tileTypes.get(k).getWeightedChance();
+        }
+      }
+    }
+    for(int x = 0; x < width; x++) {
+      for(int y = 0; y < height; y++) {
+        if(map[x][y] > 0) {
+          tileTypeProbabilities[x][y][0] = 0;
+          tileTypeProbabilities[x][y] = normalize(tileTypeProbabilities[x][y].clone());
+          float choice = rand.nextFloat();
+          for (int k = 1; k < tileTypes.size(); k++) {
+            choice -= tileTypeProbabilities[x][y][k];
             if (choice <= 0) {
-              map[i][j] = k;
+              map[x][y] = k;
+              break;
+            }
+          }
+        }
+      }
+    }
+    for(int x = 0; x < width; x++) {
+      for(int y = 0; y < height; y++) {
+        for(int k = 1; k < tileTypes.size(); k++) {
+          tileTypeProbabilities[x][y][k] += 3 * getSurroundingTileCount(k, x, y) * tileTypes.get(k).getWeightedChance();
+        }
+        if(map[x][y] > 0) {
+          tileTypeProbabilities[x][y][0] = 0;
+          tileTypeProbabilities[x][y] = normalize(tileTypeProbabilities[x][y].clone());
+          float choice = rand.nextFloat();
+          for (int k = 1; k < tileTypes.size(); k++) {
+            choice -= tileTypeProbabilities[x][y][k];
+            if (choice <= 0) {
+              map[x][y] = k;
               break;
             }
           }
@@ -140,11 +159,14 @@ public class LevelBuilder {
   }
 
   // helper function to sum an array of ints
-  private int sum (int[] arr) {
-    int sum = 0;
-    for(int i : arr) {
-      sum += i;
+  private double[] normalize(double[] arr) {
+    double sum = 0;
+    for(double a : arr) {
+      sum += a;
     }
-    return sum;
+    for(int i = 0; i < arr.length; i++) {
+      arr[i] /= sum;
+    }
+    return arr;
   }
 }

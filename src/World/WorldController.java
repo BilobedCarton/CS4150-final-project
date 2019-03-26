@@ -60,9 +60,10 @@ public class WorldController {
   public void setup() {
     // begin world generation:
     LevelBuilder levelBuilder = new LevelBuilder(this.rand);
-    this.tiles = levelBuilder.map;
     this.generateTileTypes();
-    this.tiles = levelBuilder.buildLevel(this.tileTypes).clone();
+    levelBuilder.buildLevel(this.tileTypes);
+    this.tiles = levelBuilder.getMap();
+    this.obstacles = levelBuilder.getObstacles();
   }
 
   public void draw() {
@@ -92,10 +93,11 @@ public class WorldController {
   // Generates the TileType objects we use to represent types of terrain
   private void generateTileTypes() {
     // Stub
-    this.tileTypes.add(new TileType("Wall", null, Color.black, -1));
-    this.tileTypes.add(new TileType("Dirt", null, Color.GRAY, 20));
-    this.tileTypes.add(new TileType("Water", null, Color.blue, 10));
-    this.tileTypes.add(new TileType("Grass", null, Color.GREEN.darker(), 40));
-    this.tileTypes.add(new TileType("Sand", null, Color.ORANGE.brighter().brighter(), 30));
+    double chance = 1 / 3.0;
+    this.tileTypes.add(new TileType("Wall", null, Color.black, 0));
+    this.tileTypes.add(new TileType("Dirt", null, Color.GRAY, 0.3));
+    this.tileTypes.add(new TileType("Water", null, Color.blue, 0.25));
+    this.tileTypes.add(new TileType("Lava", null, Color.RED.darker(), 0.25));
+    this.tileTypes.add(new TileType("Grass", null, Color.green.darker(), 0.2));
   }
 }
