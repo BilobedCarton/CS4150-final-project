@@ -6,10 +6,7 @@ import java.util.List;
 
 import World.Collectibles.CollectibleInstance;
 import World.Collectibles.CollectiblePrototype;
-import World.Collectibles.HealthPotion;
-import World.Collectibles.Treasure;
 import World.Effects.AbstractEffect;
-import World.Obstacles.*;
 import World.Mobs.*;
 import World.Tiles.*;
 import World.WorldGeneration.LevelBuilder;
@@ -30,14 +27,12 @@ public class WorldController {
   public int mapHeight;
   public int cellDimension;
 
-  public List<ObstaclePrototype> obstaclePrototypes;
   public List<MobPrototype> mobPrototypes;
   public List<CollectiblePrototype> collectiblePrototypes;
   public List<TileType> tileTypes;
 
   // 2D list of tile IDs designating the tile type of each pair of coordinates
   private int[][] tiles;
-  private List<ObstacleInstance> obstacles;
   private List<MobInstance> mobs;
   private List<CollectibleInstance> collectibles;
 
@@ -48,11 +43,9 @@ public class WorldController {
     this.sketch = sketch;
     this.tiles = new int[mapWidth][mapHeight];
     this.rand = rand;
-    this.obstaclePrototypes = new ArrayList<>();
     this.mobPrototypes = new ArrayList<>();
     this.collectiblePrototypes = new ArrayList<>();
     this.tileTypes = new ArrayList<>();
-    this.obstacles = new ArrayList<>();
     this.mobs = new ArrayList<>();
     this.collectibles = new ArrayList<>();
 
@@ -64,7 +57,6 @@ public class WorldController {
     CollectiblePrototype.reset();
     MobPrototype.reset();
     AbstractEffect.reset();
-    ObstaclePrototype.reset();
     TileType.reset();
     WorldController._instance.setup();
   }

@@ -3,7 +3,7 @@ package World.WorldGeneration;
 import java.util.List;
 import java.util.Random;
 
-import World.Obstacles.ObstacleInstance;
+import World.Collectibles.CollectiblePrototype;
 import World.Tiles.TileType;
 import World.WorldController;
 
@@ -14,7 +14,6 @@ public class LevelBuilder {
   private int width;
   private int height;
   private int[][] map;
-  private List<ObstacleInstance> obstacles;
 
   public LevelBuilder(Random rand) {
     this.rand = rand;
@@ -27,8 +26,9 @@ public class LevelBuilder {
     return map;
   }
 
-  public List<ObstacleInstance> getObstacles() {
-    return obstacles;
+  public void placeCollectables(List<CollectiblePrototype> collectiblePrototypes) {
+    // first we find the corners of our level.
+
   }
 
   public void buildLevel(List<TileType> tileTypes) {
