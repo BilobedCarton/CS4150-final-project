@@ -11,7 +11,8 @@ public class MobPrototype {
   private float maxHealth;
 
   public MobPrototype(float health) {
-    this.ID = ID_COUNTER++;
+    this.ID = ID_COUNTER;
+    ID_COUNTER++;
     this.maxHealth = health;
   }
 

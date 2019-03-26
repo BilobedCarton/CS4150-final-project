@@ -17,7 +17,8 @@ public class TileType {
   private int weightedChance;
 
   public TileType(String name, List<AbstractEffect> effects, Color color, int weightedChance) {
-    this.ID = ID_COUNTER++;
+    this.ID = ID_COUNTER;
+    ID_COUNTER++;
     this.name = name;
     this.effects = effects;
     this.color = color;
