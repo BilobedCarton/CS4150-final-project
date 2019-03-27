@@ -2,15 +2,16 @@ package World.Collectibles;
 
 import java.awt.*;
 
+import World.Effects.HealEffect;
 import World.WorldController;
 import processing.core.PApplet;
 
 public class HealthPotion extends CollectiblePrototype {
-  private final double MAGNITUDE = 0.5;
+  private final int MAGNITUDE = 50;
 
   public HealthPotion() {
     super();
-    // TODO: add health effect.
+    this.addEffect(new HealEffect(MAGNITUDE));
   }
 
   @Override

@@ -1,4 +1,4 @@
-package World.Mobs;
+package World.Entities;
 
 // We use these prototypes to create mobs of this type.
 // See MobInstance class for more info on process.
@@ -8,9 +8,9 @@ public class MobPrototype {
   private static int ID_COUNTER = 0;
 
   private final int ID;
-  private float maxHealth;
+  private int maxHealth;
 
-  public MobPrototype(float health) {
+  public MobPrototype(int health) {
     this.ID = ID_COUNTER;
     ID_COUNTER++;
     this.maxHealth = health;
@@ -24,7 +24,7 @@ public class MobPrototype {
     return ID;
   }
 
-  public float getMaxHealth() {
+  public int getMaxHealth() {
     return maxHealth;
   }
 }

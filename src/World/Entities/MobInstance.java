@@ -1,17 +1,18 @@
-package World.Mobs;
+package World.Entities;
 
 // The actual representation of a mob that exists in the level somewhere
 // THIS CLASS IS A STUB
-public class MobInstance {
+public class MobInstance extends AbstractEntity {
   private int mobPrototypeID;
-  private int x;
-  private int y;
-  private float health;
 
   public MobInstance(int x, int y, MobPrototype mobPrototype) {
+    super(x, y);
     this.mobPrototypeID = mobPrototype.getID();
-    this.x = x;
-    this.y = y;
     this.health = mobPrototype.getMaxHealth();
+  }
+
+  @Override
+  public void draw() {
+    // TODO
   }
 }

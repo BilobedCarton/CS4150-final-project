@@ -31,8 +31,14 @@ public abstract class CollectiblePrototype {
     WorldController._instance.placeCollectible(collectibleInstance);
   }
 
-  public void applyEffects() {
-    // TODO: build infrastructure for applying this collectable's effects to the player.
+  public void applyEffects(int x, int y) {
+    for(AbstractEffect effect : effectList) {
+      effect.applyEffect(x, y);
+    }
+  }
+
+  public void addEffect(AbstractEffect effect) {
+    this.effectList.add(effect);
   }
 
   public abstract void draw(int x, int y);

@@ -9,7 +9,7 @@ import World.Collectibles.CollectiblePrototype;
 import World.Collectibles.HealthPotion;
 import World.Collectibles.Treasure;
 import World.Effects.AbstractEffect;
-import World.Mobs.*;
+import World.Entities.*;
 import World.Tiles.*;
 import World.WorldGeneration.LevelBuilder;
 import processing.core.PApplet;
@@ -37,6 +37,7 @@ public class WorldController {
   private int[][] tiles;
   private List<MobInstance> mobs;
   private List<CollectibleInstance> collectibles;
+  private Player player;
 
   public WorldController(int mapWidth, int mapHeight, int cellDimension, Random rand, PApplet sketch) {
     this.mapWidth = mapWidth;
@@ -50,6 +51,7 @@ public class WorldController {
     this.tileTypes = new ArrayList<>();
     this.mobs = new ArrayList<>();
     this.collectibles = new ArrayList<>();
+    this.player = new Player(mapWidth / 2, mapHeight / 2);
 
     // Instantiate the global instance of the controller to this one.
     WorldController._instance = this;
@@ -97,6 +99,19 @@ public class WorldController {
 
   public void placeCollectible(CollectibleInstance collectibleInstance) {
     this.collectibles.add(collectibleInstance);
+  }
+
+  public List<AbstractEntity> getEntitiesOnTile(int x, int y) {
+    List<AbstractEntity> entities = new ArrayList<>();
+    for(MobInstance mob : this.mobs) {
+      if(mob.getX() == x && mob.getY() == y) {
+        entities.add(mob);
+      }
+    }
+    if(player.getX() == x && player.getY() == y) {
+      entities.add(player);
+    }
+    return entities;
   }
 
   // Generates the TileType objects we use to represent types of terrain
