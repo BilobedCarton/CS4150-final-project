@@ -16,7 +16,7 @@ public class HurtEffect extends AbstractEffect {
   public void applyEffect(int x, int y) {
     List<AbstractEntity> entities = WorldController._instance.getEntitiesOnTile(x, y);
     for(AbstractEntity entity : entities) {
-      entity.takeDamage(MAGNITUDE);
+      entity.changeHealth(-MAGNITUDE);
     }
   }
 }

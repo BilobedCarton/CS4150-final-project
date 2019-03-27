@@ -16,6 +16,7 @@ public abstract class AbstractEntity {
     this.x = x;
     this.y = y;
     this.maxHealth = maxHealth;
+    this.health = maxHealth;
     this.isAlive = true;
   }
 
