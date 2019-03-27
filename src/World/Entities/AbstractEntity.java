@@ -36,16 +36,16 @@ public abstract class AbstractEntity {
     this.y = y;
   }
 
-  public void takeDamage(int damage) {
-    this.health -= damage;
+  public void changeHealth(int delta) {
+    this.health += delta;
+    this.health = Math.min(this.health, this.maxHealth);
     if(this.health <= 0) {
       this.isAlive = false;
     }
   }
 
-  public void healDamage(int healing) {
-    this.health += healing;
-    this.health = Math.min(this.health, this.maxHealth);
+  public void modifySpeed(double multiplier) {
+    this.maxSpeed *= multiplier;
   }
 
   public abstract void draw();
