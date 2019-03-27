@@ -6,8 +6,10 @@ import java.util.List;
 
 import World.Collectibles.CollectibleInstance;
 import World.Collectibles.CollectiblePrototype;
-import World.Obstacles.*;
-import World.Mobs.*;
+import World.Collectibles.HealthPotion;
+import World.Collectibles.Treasure;
+import World.Effects.AbstractEffect;
+import World.Entities.*;
 import World.Tiles.*;
 import World.WorldGeneration.LevelBuilder;
 import processing.core.PApplet;
@@ -27,16 +29,15 @@ public class WorldController {
   public int mapHeight;
   public int cellDimension;
 
-  public List<ObstaclePrototype> obstaclePrototypes;
   public List<MobPrototype> mobPrototypes;
   public List<CollectiblePrototype> collectiblePrototypes;
   public List<TileType> tileTypes;
 
   // 2D list of tile IDs designating the tile type of each pair of coordinates
   private int[][] tiles;
-  private List<ObstacleInstance> obstacles;
   private List<MobInstance> mobs;
   private List<CollectibleInstance> collectibles;
+  private Player player;
 
   public WorldController(int mapWidth, int mapHeight, int cellDimension, Random rand, PApplet sketch) {
     this.mapWidth = mapWidth;
@@ -45,25 +46,32 @@ public class WorldController {
     this.sketch = sketch;
     this.tiles = new int[mapWidth][mapHeight];
     this.rand = rand;
-    this.obstaclePrototypes = new ArrayList<>();
     this.mobPrototypes = new ArrayList<>();
     this.collectiblePrototypes = new ArrayList<>();
     this.tileTypes = new ArrayList<>();
-    this.obstacles = new ArrayList<>();
     this.mobs = new ArrayList<>();
     this.collectibles = new ArrayList<>();
+    this.player = new Player(mapWidth / 2, mapHeight / 2);
 
     // Instantiate the global instance of the controller to this one.
     WorldController._instance = this;
   }
 
-  public void setup() {
+  public static void reset() {
+    CollectiblePrototype.reset();
+    MobPrototype.reset();
+    AbstractEffect.reset();
+    TileType.reset();
+    WorldController._instance.setup();
+  }
+
+  private void setup() {
     // begin world generation:
     LevelBuilder levelBuilder = new LevelBuilder(this.rand);
     this.generateTileTypes();
-    levelBuilder.buildLevel(this.tileTypes);
+    this.generateCollectiblePrototypes();
+    levelBuilder.buildLevel(this.tileTypes, this.collectiblePrototypes);
     this.tiles = levelBuilder.getMap();
-    this.obstacles = levelBuilder.getObstacles();
   }
 
   public void draw() {
@@ -84,10 +92,26 @@ public class WorldController {
                 (y + 1) * cellDimension);
       }
     }
+    for(CollectibleInstance collectibleInstance : collectibles) {
+      collectibleInstance.draw();
+    }
   }
 
   public void placeCollectible(CollectibleInstance collectibleInstance) {
     this.collectibles.add(collectibleInstance);
+  }
+
+  public List<AbstractEntity> getEntitiesOnTile(int x, int y) {
+    List<AbstractEntity> entities = new ArrayList<>();
+    for(MobInstance mob : this.mobs) {
+      if(mob.getX() == x && mob.getY() == y) {
+        entities.add(mob);
+      }
+    }
+    if(player.getX() == x && player.getY() == y) {
+      entities.add(player);
+    }
+    return entities;
   }
 
   // Generates the TileType objects we use to represent types of terrain
@@ -99,5 +123,10 @@ public class WorldController {
     this.tileTypes.add(new TileType("Water", null, Color.blue, 0.25));
     this.tileTypes.add(new TileType("Lava", null, Color.RED.darker(), 0.25));
     this.tileTypes.add(new TileType("Grass", null, Color.green.darker(), 0.2));
+  }
+
+  private void generateCollectiblePrototypes() {
+    this.collectiblePrototypes.add(new Treasure());
+    this.collectiblePrototypes.add(new HealthPotion());
   }
 }

@@ -13,7 +13,11 @@ public class CollectibleInstance {
     this.collectablePrototypeID = collectiblePrototype.getID();
   }
 
+  public void collect() {
+    WorldController._instance.collectiblePrototypes.get(collectablePrototypeID).applyEffects(this.x, this.y);
+  }
+
   public void draw() {
-    WorldController._instance.collectiblePrototypes.get(collectablePrototypeID).draw();
+    WorldController._instance.collectiblePrototypes.get(collectablePrototypeID).draw(x, y);
   }
 }
