@@ -29,6 +29,8 @@ public class LevelBuilder {
     return map;
   }
 
+  // map creation based upon techniques applied in the following video by Sebastian Lague:
+  // https://www.youtube.com/watch?v=v7yyZZjF1z4&list=PLFt_AvWsXl0eZgMK_DT5_biRkWXftAOf9
   public void buildLevel(List<TileType> tileTypes, List<CollectiblePrototype> collectiblePrototypes) {
     this.buildSimpleMap(rand.nextInt(5) + 42);
     for(int i = 0; i < SMOOTH_PASSES; i++) {
