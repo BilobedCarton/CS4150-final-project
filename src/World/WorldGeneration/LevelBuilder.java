@@ -1,14 +1,17 @@
 package World.WorldGeneration;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
 import World.Collectibles.CollectiblePrototype;
 import World.Tiles.TileType;
 import World.WorldController;
+import processing.core.PVector;
 
 public class LevelBuilder {
   private final static int SMOOTH_PASSES = 5;
+  private final static int DIST_FROM_WALL = 3;
 
   private Random rand;
   private int width;
@@ -26,12 +29,7 @@ public class LevelBuilder {
     return map;
   }
 
-  public void placeCollectables(List<CollectiblePrototype> collectiblePrototypes) {
-    // first we find the corners of our level.
-
-  }
-
-  public void buildLevel(List<TileType> tileTypes) {
+  public void buildLevel(List<TileType> tileTypes, List<CollectiblePrototype> collectiblePrototypes) {
     this.buildSimpleMap(rand.nextInt(5) + 42);
     for(int i = 0; i < SMOOTH_PASSES; i++) {
       this.smoothMapWalls();
@@ -40,6 +38,81 @@ public class LevelBuilder {
     for(int j = 0; j < SMOOTH_PASSES; j++) {
       this.smoothMapTiles(tileTypes);
     }
+    this.placeCollectables(collectiblePrototypes);
+  }
+
+  public void placeCollectables(List<CollectiblePrototype> collectiblePrototypes) {
+    List<PVector> cornerPoints = this.findOpenCorners();
+    boolean placedTreasure = false;
+    for(int i = 0; i < cornerPoints.size(); i++) {
+      if((i == cornerPoints.size() - 1 || rand.nextInt(2) == 1) && placedTreasure == false) {
+        collectiblePrototypes.get(0).placeInstance((int) cornerPoints.get(i).x, (int) cornerPoints.get(i).y);
+        placedTreasure = true;
+      }
+      else{
+        int k = rand.nextInt(collectiblePrototypes.size() - 1) + 1;
+        collectiblePrototypes.get(k).placeInstance((int) cornerPoints.get(i).x, (int) cornerPoints.get(i).y);
+      }
+    }
+  }
+
+  private List<PVector> findOpenCorners() {
+    // first we find the corners of our level.
+    List<PVector> openCornerPoints = new ArrayList<>();
+    // top left
+    int distFromWall = 0;
+    for(int x = 0, y = 0; x < width / 2 && y < height / 2; x++, y++) {
+      if(map[x][y] != 0) {
+        if(distFromWall >= DIST_FROM_WALL) {
+          openCornerPoints.add(new PVector(x, y));
+          break;
+        }
+        distFromWall++;
+      }
+      else {
+        distFromWall = 0;
+      }
+    }
+    // top right
+    for(int x = width - 1, y = 0; x > width / 2 && y < height / 2; x--, y++) {
+      if(map[x][y] != 0) {
+        if(distFromWall >= DIST_FROM_WALL) {
+          openCornerPoints.add(new PVector(x, y));
+          break;
+        }
+        distFromWall++;
+      }
+      else {
+        distFromWall = 0;
+      }
+    }
+    // bottom right
+    for(int x = width - 1, y = height - 1; x > width / 2 && y > height / 2; x--, y--) {
+      if(map[x][y] != 0) {
+        if(distFromWall >= DIST_FROM_WALL) {
+          openCornerPoints.add(new PVector(x, y));
+          break;
+        }
+        distFromWall++;
+      }
+      else {
+        distFromWall = 0;
+      }
+    }
+    // bottom left
+    for(int x = 0, y = height - 1; x < width / 2 && y > height / 2; x++, y--) {
+      if(map[x][y] != 0) {
+        if(distFromWall >= DIST_FROM_WALL) {
+          openCornerPoints.add(new PVector(x, y));
+          break;
+        }
+        distFromWall++;
+      }
+      else {
+        distFromWall = 0;
+      }
+    }
+    return openCornerPoints;
   }
 
   private void buildSimpleMap(int fillPercent) {

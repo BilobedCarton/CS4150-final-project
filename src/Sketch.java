@@ -8,8 +8,8 @@ public class Sketch extends PApplet {
   private Random rand;
   // This is in terrain cells (not pixels)
   private static int MAP_WIDTH = 1200;
-  private static int MAP_HEIGHT = 650;
-  private static int CELL_DIMENSION = 10;
+  private static int MAP_HEIGHT = 645;
+  private static int CELL_DIMENSION = 15;
   private static WorldController wc;
 
   public Sketch(String seed) {

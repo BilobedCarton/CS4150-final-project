@@ -6,6 +6,8 @@ import java.util.List;
 
 import World.Collectibles.CollectibleInstance;
 import World.Collectibles.CollectiblePrototype;
+import World.Collectibles.HealthPotion;
+import World.Collectibles.Treasure;
 import World.Effects.AbstractEffect;
 import World.Mobs.*;
 import World.Tiles.*;
@@ -65,7 +67,8 @@ public class WorldController {
     // begin world generation:
     LevelBuilder levelBuilder = new LevelBuilder(this.rand);
     this.generateTileTypes();
-    levelBuilder.buildLevel(this.tileTypes);
+    this.generateCollectiblePrototypes();
+    levelBuilder.buildLevel(this.tileTypes, this.collectiblePrototypes);
     this.tiles = levelBuilder.getMap();
   }
 
@@ -105,5 +108,10 @@ public class WorldController {
     this.tileTypes.add(new TileType("Water", null, Color.blue, 0.25));
     this.tileTypes.add(new TileType("Lava", null, Color.RED.darker(), 0.25));
     this.tileTypes.add(new TileType("Grass", null, Color.green.darker(), 0.2));
+  }
+
+  private void generateCollectiblePrototypes() {
+    this.collectiblePrototypes.add(new Treasure());
+    this.collectiblePrototypes.add(new HealthPotion());
   }
 }
