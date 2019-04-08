@@ -29,13 +29,12 @@ public class WorldController {
   public int mapHeight;
   public int cellDimension;
 
-  public List<MobPrototype> mobPrototypes;
   public List<CollectiblePrototype> collectiblePrototypes;
   public List<TileType> tileTypes;
 
   // 2D list of tile IDs designating the tile type of each pair of coordinates
   private int[][] tiles;
-  private List<MobInstance> mobs;
+  private List<AbstractMob> mobs;
   private List<CollectibleInstance> collectibles;
   private Player player;
 
@@ -46,7 +45,6 @@ public class WorldController {
     this.sketch = sketch;
     this.tiles = new int[mapWidth][mapHeight];
     this.rand = rand;
-    this.mobPrototypes = new ArrayList<>();
     this.collectiblePrototypes = new ArrayList<>();
     this.tileTypes = new ArrayList<>();
     this.mobs = new ArrayList<>();
@@ -59,7 +57,6 @@ public class WorldController {
 
   public static void reset() {
     CollectiblePrototype.reset();
-    MobPrototype.reset();
     AbstractEffect.reset();
     TileType.reset();
     WorldController._instance.setup();
@@ -103,7 +100,7 @@ public class WorldController {
 
   public List<AbstractEntity> getEntitiesOnTile(int x, int y) {
     List<AbstractEntity> entities = new ArrayList<>();
-    for(MobInstance mob : this.mobs) {
+    for(AbstractMob mob : this.mobs) {
       if(mob.getX() == x && mob.getY() == y) {
         entities.add(mob);
       }
