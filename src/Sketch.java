@@ -6,7 +6,6 @@ import processing.core.PApplet;
 public class Sketch extends PApplet {
 
   private Random rand;
-  // This is in terrain cells (not pixels)
   private static int MAP_WIDTH = 1200;
   private static int MAP_HEIGHT = 645;
   private static int CELL_DIMENSION = 15;
