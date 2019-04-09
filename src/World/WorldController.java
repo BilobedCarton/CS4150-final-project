@@ -8,7 +8,7 @@ import World.Collectibles.CollectibleInstance;
 import World.Collectibles.CollectiblePrototype;
 import World.Collectibles.HealthPotion;
 import World.Collectibles.Treasure;
-import World.Effects.AbstractEffect;
+import World.Effects.*;
 import World.Entities.*;
 import World.Tiles.*;
 import World.WorldGeneration.LevelBuilder;
@@ -57,7 +57,6 @@ public class WorldController {
 
   public static void reset() {
     CollectiblePrototype.reset();
-    AbstractEffect.reset();
     TileType.reset();
     WorldController._instance.setup();
   }
@@ -113,13 +112,11 @@ public class WorldController {
 
   // Generates the TileType objects we use to represent types of terrain
   private void generateTileTypes() {
-    // Stub
-    double chance = 1 / 3.0;
     this.tileTypes.add(new TileType("Wall", null, Color.black, 0));
-    this.tileTypes.add(new TileType("Dirt", null, Color.GRAY, 0.3));
-    this.tileTypes.add(new TileType("Water", null, Color.blue, 0.25));
-    this.tileTypes.add(new TileType("Lava", null, Color.RED.darker(), 0.25));
-    this.tileTypes.add(new TileType("Grass", null, Color.green.darker(), 0.2));
+    this.tileTypes.add(new TileType("Dirt", Arrays.asList(new AbstractEffect[]{new ResetEffect()}), Color.gray, 0.35));
+    this.tileTypes.add(new TileType("Water", Arrays.asList(new AbstractEffect[]{new HealEffect(1)}), Color.blue, 0.20));
+    this.tileTypes.add(new TileType("Lava", Arrays.asList(new AbstractEffect[]{new HurtEffect(2)}), Color.RED.darker(), 0.22));
+    this.tileTypes.add(new TileType("Mud", Arrays.asList(new AbstractEffect[]{new SlowEffect(0.75)}), new Color(150, 75, 0).darker(), 0.23));
   }
 
   private void generateCollectiblePrototypes() {

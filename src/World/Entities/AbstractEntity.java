@@ -6,6 +6,7 @@ public abstract class AbstractEntity {
   private int maxHealth;
   protected int health;
   protected double maxSpeed;
+  protected double currentMaxSpeed; // this is for storing the modified speed.
   protected double maxAcceleration;
   protected double maxRotation;
   protected double maxRotationalAcceleration;
@@ -46,7 +47,11 @@ public abstract class AbstractEntity {
   }
 
   public void modifySpeed(double multiplier) {
-    this.maxSpeed *= multiplier;
+    this.currentMaxSpeed = maxSpeed * multiplier;
+  }
+
+  public void resetSpeed() {
+    this.currentMaxSpeed = maxSpeed;
   }
 
   public abstract void draw();

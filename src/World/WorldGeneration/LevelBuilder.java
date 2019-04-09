@@ -37,7 +37,7 @@ public class LevelBuilder {
       this.smoothMapWalls();
     }
     this.assignTileTypes(tileTypes);
-    for(int j = 0; j < SMOOTH_PASSES; j++) {
+    for(int j = 0; j < SMOOTH_PASSES / 3; j++) {
       this.smoothMapTiles(tileTypes);
     }
     this.placeCollectables(collectiblePrototypes);
