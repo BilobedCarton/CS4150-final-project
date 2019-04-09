@@ -2,16 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="403b22ba-f62e-4bee-ac65-74d04928498c" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/World/Effects/ResetEffect.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/World/Effects/SlowEffect.java" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/CS4150FinalProject/World/WorldController.class" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/CS4150FinalProject/World/Effects/AbstractEffect.class" afterPath="$PROJECT_DIR$/out/production/CS4150FinalProject/World/Effects/AbstractEffect.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/CS4150FinalProject/World/WorldGeneration/LevelBuilder.class" afterPath="$PROJECT_DIR$/out/production/CS4150FinalProject/World/WorldGeneration/LevelBuilder.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/World/Effects/AbstractEffect.java" afterPath="$PROJECT_DIR$/src/World/Effects/AbstractEffect.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/World/Entities/AbstractEntity.java" afterPath="$PROJECT_DIR$/src/World/Entities/AbstractEntity.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/World/WorldController.java" afterPath="$PROJECT_DIR$/src/World/WorldController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/World/WorldGeneration/LevelBuilder.java" afterPath="$PROJECT_DIR$/src/World/WorldGeneration/LevelBuilder.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/World/Entities/Player.java" afterPath="$PROJECT_DIR$/src/World/Entities/Player.java" />
     </list>
     <ignored path=".idea/" />
     <ignored path="$PROJECT_DIR$/out/" />
@@ -36,7 +27,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="WorldController.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="WorldController.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/World/WorldController.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="950">
@@ -48,16 +39,25 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="AbstractEntity.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/World/Entities/AbstractEntity.java">
+      <file leaf-file-name="Player.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/World/Entities/Player.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="741">
-              <caret line="53" column="36" lean-forward="false" selection-start-line="53" selection-start-column="36" selection-end-line="53" selection-end-column="36" />
+            <state relative-caret-position="476">
+              <caret line="28" column="1" lean-forward="true" selection-start-line="28" selection-start-column="1" selection-end-line="28" selection-end-column="1" />
               <folding>
-                <element signature="e#1010#1011#0" expanded="true" />
-                <element signature="e#1064#1065#0" expanded="true" />
-                <element signature="e#1094#1095#0" expanded="true" />
-                <element signature="e#1135#1136#0" expanded="true" />
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="HealthPotion.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/World/Collectibles/HealthPotion.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="442">
+              <caret line="26" column="31" lean-forward="true" selection-start-line="18" selection-start-column="4" selection-end-line="26" selection-end-column="31" />
+              <folding>
+                <element signature="imports" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -91,7 +91,6 @@
         <option value="$PROJECT_DIR$/src/World/Collectibles/HealthPotion.java" />
         <option value="$PROJECT_DIR$/src/World/Collectibles/CollectiblePrototype.java" />
         <option value="$PROJECT_DIR$/src/World/Collectibles/CollectibleInstance.java" />
-        <option value="$PROJECT_DIR$/src/World/Entities/Player.java" />
         <option value="$PROJECT_DIR$/src/World/Effects/HealEffect.java" />
         <option value="$PROJECT_DIR$/src/World/Effects/HurtEffect.java" />
         <option value="$PROJECT_DIR$/src/Sketch.java" />
@@ -113,6 +112,7 @@
         <option value="$PROJECT_DIR$/src/World/Effects/ResetEffect.java" />
         <option value="$PROJECT_DIR$/src/World/Entities/AbstractEntity.java" />
         <option value="$PROJECT_DIR$/src/World/WorldController.java" />
+        <option value="$PROJECT_DIR$/src/World/Entities/Player.java" />
       </list>
     </option>
   </component>
@@ -163,6 +163,13 @@
               <item name="CS4150-Final-Project" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="World" type="462c0819:PsiDirectoryNode" />
+              <item name="Collectibles" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="CS4150-Final-Project" type="b2602c69:ProjectViewProjectNode" />
+              <item name="CS4150-Final-Project" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="World" type="462c0819:PsiDirectoryNode" />
               <item name="Effects" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -171,23 +178,6 @@
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="World" type="462c0819:PsiDirectoryNode" />
               <item name="Entities" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="CS4150-Final-Project" type="b2602c69:ProjectViewProjectNode" />
-              <item name="CS4150-Final-Project" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="World" type="462c0819:PsiDirectoryNode" />
-              <item name="Entities" type="462c0819:PsiDirectoryNode" />
-              <item name="Behavior" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="CS4150-Final-Project" type="b2602c69:ProjectViewProjectNode" />
-              <item name="CS4150-Final-Project" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="World" type="462c0819:PsiDirectoryNode" />
-              <item name="Entities" type="462c0819:PsiDirectoryNode" />
-              <item name="Behavior" type="462c0819:PsiDirectoryNode" />
-              <item name="General" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="CS4150-Final-Project" type="b2602c69:ProjectViewProjectNode" />
@@ -530,14 +520,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/World/Collectibles/HealthPotion.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="55">
-          <caret line="5" column="29" lean-forward="true" selection-start-line="5" selection-start-column="29" selection-end-line="5" selection-end-column="29" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/World/Collectibles/CollectiblePrototype.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="389">
@@ -551,16 +533,6 @@
         <state relative-caret-position="240">
           <caret line="16" column="18" lean-forward="false" selection-start-line="16" selection-start-column="18" selection-end-line="16" selection-end-column="18" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Sketch.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="391">
-          <caret line="23" column="0" lean-forward="true" selection-start-line="23" selection-start-column="0" selection-end-line="23" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -609,14 +581,6 @@
             <element signature="e#395#396#0" expanded="true" />
             <element signature="e#431#432#0" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/World/Entities/Player.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="4" column="21" lean-forward="false" selection-start-line="4" selection-start-column="21" selection-end-line="4" selection-end-column="21" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -815,10 +779,40 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/Sketch.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="391">
+          <caret line="23" column="0" lean-forward="true" selection-start-line="23" selection-start-column="0" selection-end-line="23" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/World/WorldController.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="950">
           <caret line="108" column="5" lean-forward="true" selection-start-line="108" selection-start-column="5" selection-end-line="108" selection-end-column="5" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/World/Collectibles/HealthPotion.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="442">
+          <caret line="26" column="31" lean-forward="true" selection-start-line="18" selection-start-column="4" selection-end-line="26" selection-end-column="31" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/World/Entities/Player.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="476">
+          <caret line="28" column="1" lean-forward="true" selection-start-line="28" selection-start-column="1" selection-end-line="28" selection-end-column="1" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
