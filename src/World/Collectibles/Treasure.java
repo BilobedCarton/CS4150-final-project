@@ -2,13 +2,14 @@ package World.Collectibles;
 
 import java.awt.*;
 
+import World.Effects.WinEffect;
 import World.WorldController;
 import processing.core.PApplet;
 
 public class Treasure extends CollectiblePrototype {
   public Treasure() {
     super();
-    // TODO: add effect to check if the map is beaten.
+    this.addEffect(new WinEffect());
   }
 
   @Override
