@@ -1,4 +1,6 @@
 ****** README ******
+JAR is in out/artifacts/CS4150FinalProject_jar/CS4150FinalProject.jar
+
 Usage guide:
 wasd - standard movement
 r - resets game and generates new map
