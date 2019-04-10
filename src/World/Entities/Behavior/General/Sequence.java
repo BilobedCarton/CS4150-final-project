@@ -25,8 +25,9 @@ public class Sequence extends AbstractBehavior {
     @Override
     public int execute() {
         for(AbstractBehavior child : children) {
-            if(child.execute() == 0) {
-                return 0;
+            int flag = child.execute();
+            if(flag != 1) {
+                return flag;
             }
         }
         return 1;

@@ -38,7 +38,7 @@ public class MoveAlongPath extends AbstractBehavior {
             else {
                 mob.move(nextPoint.x, nextPoint.y);
                 bb.put("Path", Arrays.copyOfRange(path, i, path.length));
-                return 1;
+                return 2;
             }
         }
         return 0;

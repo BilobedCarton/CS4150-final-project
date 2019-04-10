@@ -25,8 +25,9 @@ public class Selector extends AbstractBehavior {
     @Override
     public int execute() {
         for(AbstractBehavior child : children) {
-            if(child.execute() == 1) {
-                return 1;
+            int flag = child.execute();
+            if(flag != 0) {
+                return flag;
             }
         }
         return 0;

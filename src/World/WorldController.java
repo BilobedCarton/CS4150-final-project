@@ -71,7 +71,9 @@ public class WorldController {
   }
 
   public void executeTick() {
-    // STUB for executing a tick of the game (i.e. every time the player takes an action).
+    for(AbstractMob mob : mobs) {
+      int flag = mob.executeBehavior();
+    }
   }
 
   public void draw() {

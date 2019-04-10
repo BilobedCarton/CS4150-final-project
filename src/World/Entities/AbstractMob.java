@@ -40,4 +40,8 @@ public abstract class AbstractMob extends AbstractEntity {
     public void engage() {
         this.isEngaged = true;
     }
+
+    public int executeBehavior() {
+        return behaviorTree.execute();
+    }
 }
