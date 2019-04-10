@@ -1,17 +1,21 @@
 package World.Entities;
 
+import processing.core.PVector;
+
 public abstract class AbstractEntity {
   private int x;
   private int y;
   private int maxHealth;
   protected int health;
-  protected double maxSpeed;
-  protected double currentMaxSpeed; // this is for storing the modified speed.
-  protected double maxAcceleration;
+  protected int maxSpeed;
+  protected PVector currentSpeed; // this is for storing the modified speed.
+  protected float maxAcceleration;
   protected double maxRotation;
   protected double maxRotationalAcceleration;
 
   protected boolean isAlive;
+  private boolean isSpeedModified;
+  private double speedModifier;
 
   AbstractEntity(int x, int y, int maxHealth) {
     this.x = x;
@@ -19,6 +23,7 @@ public abstract class AbstractEntity {
     this.maxHealth = maxHealth;
     this.health = maxHealth;
     this.isAlive = true;
+    this.isSpeedModified = false;
   }
 
   public int getX() {
@@ -47,11 +52,16 @@ public abstract class AbstractEntity {
   }
 
   public void modifySpeed(double multiplier) {
-    this.currentMaxSpeed = maxSpeed * multiplier;
+    if(isSpeedModified == false) {
+      this.maxSpeed *= multiplier;
+      this.isSpeedModified = true;
+      this.speedModifier = multiplier;
+    }
   }
 
   public void resetSpeed() {
-    this.currentMaxSpeed = maxSpeed;
+    this.maxSpeed /= this.speedModifier;
+    this.isSpeedModified = false;
   }
 
   public abstract void draw();

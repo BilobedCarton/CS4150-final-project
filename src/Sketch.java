@@ -2,6 +2,7 @@ import java.util.Random;
 
 import World.WorldController;
 import processing.core.PApplet;
+import processing.event.Event;
 
 public class Sketch extends PApplet {
 
@@ -28,12 +29,21 @@ public class Sketch extends PApplet {
   }
 
   public void draw() {
+    wc.player.movePlayer();
     wc.draw();
   }
 
   public void mouseReleased() {
     this.wc = new WorldController(MAP_WIDTH / CELL_DIMENSION, MAP_HEIGHT / CELL_DIMENSION, CELL_DIMENSION, rand, this);
     WorldController.reset();
+  }
+
+  public void keyPressed() {
+    this.wc.player.setMove(keyCode, true);
+  }
+
+  public void keyReleased() {
+    this.wc.player.setMove(keyCode, false);
   }
 
   public static void main(String[] args) {

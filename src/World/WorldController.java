@@ -36,7 +36,7 @@ public class WorldController {
   private int[][] tiles;
   private List<AbstractMob> mobs;
   private List<CollectibleInstance> collectibles;
-  private Player player;
+  public Player player;
 
   public WorldController(int mapWidth, int mapHeight, int cellDimension, Random rand, PApplet sketch) {
     this.mapWidth = mapWidth;
@@ -49,7 +49,7 @@ public class WorldController {
     this.tileTypes = new ArrayList<>();
     this.mobs = new ArrayList<>();
     this.collectibles = new ArrayList<>();
-    this.player = new Player(mapWidth / 2, mapHeight / 2);
+    this.player = new Player(mapWidth / 2 * cellDimension, mapHeight / 2  * cellDimension);
 
     // Instantiate the global instance of the controller to this one.
     WorldController._instance = this;
@@ -91,6 +91,7 @@ public class WorldController {
     for(CollectibleInstance collectibleInstance : collectibles) {
       collectibleInstance.draw();
     }
+    player.draw();
   }
 
   public void placeCollectible(CollectibleInstance collectibleInstance) {
@@ -110,12 +111,16 @@ public class WorldController {
     return entities;
   }
 
+  public TileType getTileTypeOfGivenTile(int x, int y) {
+    return tileTypes.get(tiles[x][y]);
+  }
+
   // Generates the TileType objects we use to represent types of terrain
   private void generateTileTypes() {
     this.tileTypes.add(new TileType("Wall", null, Color.black, 0));
     this.tileTypes.add(new TileType("Dirt", Arrays.asList(new AbstractEffect[]{new ResetEffect()}), Color.gray, 0.35));
-    this.tileTypes.add(new TileType("Water", Arrays.asList(new AbstractEffect[]{new HealEffect(1)}), Color.blue, 0.20));
-    this.tileTypes.add(new TileType("Lava", Arrays.asList(new AbstractEffect[]{new HurtEffect(2)}), Color.RED.darker(), 0.22));
+    this.tileTypes.add(new TileType("Water", Arrays.asList(new AbstractEffect[]{new HealEffect(1), new ResetEffect()}), Color.blue, 0.20));
+    this.tileTypes.add(new TileType("Lava", Arrays.asList(new AbstractEffect[]{new HurtEffect(2), new ResetEffect()}), Color.RED.darker(), 0.22));
     this.tileTypes.add(new TileType("Mud", Arrays.asList(new AbstractEffect[]{new SlowEffect(0.75)}), new Color(150, 75, 0).darker(), 0.23));
   }
 
