@@ -15,6 +15,7 @@ import World.WorldGeneration.LevelBuilder;
 import processing.core.PApplet;
 
 public class WorldController {
+  public boolean DEBUG_MODE = false;
 
   // The current instance of the WorldController
   public static WorldController _instance;
@@ -77,8 +78,15 @@ public class WorldController {
   }
 
   public void executeTick() {
+    ArrayList<AbstractMob> mobsToBeDeleted = new ArrayList<>();
     for(AbstractMob mob : mobs) {
       mob.executeBehavior();
+      if(mob.isAlive() == false) {
+        mobsToBeDeleted.add(mob);
+      }
+    }
+    for(AbstractMob mob : mobsToBeDeleted) {
+      mobs.remove(mob);
     }
     checkCollectibles();
     applyTerrainEffects();
@@ -108,6 +116,9 @@ public class WorldController {
     for(CollectibleInstance collectibleInstance : collectibles) {
       collectibleInstance.draw();
     }
+    for(AbstractMob mob : mobs) {
+      mob.draw();
+    }
     player.draw();
   }
 
@@ -135,6 +146,10 @@ public class WorldController {
 
   public TileType getTileTypeOfGivenTile(int x, int y) {
     return tileTypes.get(tiles[x][y]);
+  }
+
+  public void addMob(AbstractMob mob) {
+    this.mobs.add(mob);
   }
 
   // Generates the TileType objects we use to represent types of terrain

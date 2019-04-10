@@ -2,6 +2,8 @@ package World.Entities;
 
 import World.Entities.Behavior.AbstractBehavior;
 import World.Entities.Behavior.Blackboard;
+import World.WorldController;
+import processing.core.PApplet;
 
 import java.awt.*;
 
@@ -43,4 +45,24 @@ public abstract class AbstractMob extends AbstractEntity {
     public int executeBehavior() {
         return behaviorTree.execute();
     }
+
+    @Override
+    public void draw() {
+        super.draw();
+        if(WorldController._instance.DEBUG_MODE && this.isAlive()) {
+            if (bb.getOrNull("TargetPoint") != null) {
+                Point target = (Point) bb.get("TargetPoint");
+                PApplet sketch = WorldController._instance.sketch;
+                int cellDimension = WorldController._instance.cellDimension;
+                sketch.fill(Color.BLACK.getRed(), Color.BLACK.getGreen(), Color.BLACK.getBlue());
+                sketch.stroke(Color.pink.getRed(), Color.pink.getGreen(), Color.pink.getBlue());
+                sketch.ellipse(
+                        target.x * cellDimension + (cellDimension / 2),
+                        target.y * cellDimension + (cellDimension / 2),
+                        cellDimension - 1,
+                        cellDimension - 1);
+            }
+        }
+    }
+
 }

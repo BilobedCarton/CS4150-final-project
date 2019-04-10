@@ -10,8 +10,11 @@ public class RayToPlayer {
     public Point[] ray;
 
     public RayToPlayer(Point origin) {
-        Point b = new Point(WorldController._instance.player.getX(), WorldController._instance.player.getY());
-        ray = (Point[]) bresenhamLine(origin, b).toArray();
+        Point a = new Point(origin.x * WorldController._instance.cellDimension, origin.y * WorldController._instance.cellDimension);
+        Point b = new Point(WorldController._instance.player.getX() * WorldController._instance.cellDimension, WorldController._instance.player.getY() * WorldController._instance.cellDimension);
+        ArrayList<Point> bLine = bresenhamLine(a, b);
+        ray = new Point[bLine.size()];
+        ray = bLine.toArray(ray);
     }
 
     public boolean canSeePlayerFromPoint() {

@@ -5,6 +5,10 @@ import java.util.HashMap;
 public class Blackboard {
     HashMap<String, Object> lookup;
 
+    public Blackboard() {
+        this.lookup = new HashMap<>();
+    }
+
     public Object get(String key) {
         return lookup.get(key);
     }

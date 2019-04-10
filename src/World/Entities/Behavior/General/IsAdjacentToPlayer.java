@@ -3,11 +3,12 @@ package World.Entities.Behavior.General;
 import World.Entities.AbstractMob;
 import World.Entities.Behavior.AbstractBehavior;
 import World.Entities.Behavior.Blackboard;
-import World.Entities.Utilities.AStarPath;
 import World.WorldController;
 
-public class BuildPathToPlayer extends AbstractBehavior {
-    public BuildPathToPlayer(Blackboard bb) {
+import java.awt.*;
+
+public class IsAdjacentToPlayer extends AbstractBehavior {
+    public IsAdjacentToPlayer(Blackboard bb) {
         super(bb);
     }
 
@@ -20,16 +21,14 @@ public class BuildPathToPlayer extends AbstractBehavior {
     @Override
     public int execute() {
         if(WorldController._instance.DEBUG_MODE) {
-            System.out.println("Debug - building path to player.");
+            System.out.println("Debug - Checking if adjacent to player");
         }
-
         AbstractMob mob = (AbstractMob) bb.get("This");
-        AStarPath path = new AStarPath(mob, WorldController._instance.player);
-        if(path.succeeded) {
-            bb.put("Path", path.path);
+        if ((Math.abs(WorldController._instance.player.getX() - mob.getX()) + Math.abs(WorldController._instance.player.getY() + mob.getY())) == 1) {
+            bb.put("TargetPoint", new Point(mob.getX(), mob.getY()));
+            bb.put("Path", null);
             return 1;
         }
-        bb.put("Path", null);
         return 0;
     }
 }

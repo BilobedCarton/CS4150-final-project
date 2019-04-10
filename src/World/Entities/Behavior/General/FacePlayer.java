@@ -20,6 +20,9 @@ public class FacePlayer extends AbstractBehavior {
 
     @Override
     public int execute() {
+        if(WorldController._instance.DEBUG_MODE) {
+            System.out.println("Debug - Facing player");
+        }
         AbstractMob mob = (AbstractMob) bb.get("This");
         PVector vectorToPlayer =
                 (new PVector(WorldController._instance.player.getX(), WorldController._instance.player.getY()))

@@ -2,8 +2,10 @@ package World.Entities.Behavior.General;
 
 import World.Entities.Behavior.AbstractBehavior;
 import World.Entities.Behavior.Blackboard;
+import World.WorldController;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.concurrent.CountDownLatch;
 
@@ -39,9 +41,9 @@ public class Parallel extends AbstractBehavior {
     private List<Thread> threads = new ArrayList<>();
     private int result = -1;
 
-    public Parallel(Blackboard bb, List<AbstractBehavior> children) {
+    public Parallel(Blackboard bb, AbstractBehavior... children) {
         super(bb);
-        this.children = children;
+        this.children = new ArrayList<AbstractBehavior>(Arrays.asList(children));
     }
 
     @Override
@@ -55,6 +57,9 @@ public class Parallel extends AbstractBehavior {
 
     @Override
     public int execute() {
+        if(WorldController._instance.DEBUG_MODE) {
+            System.out.println("Debug - Executing tasks in parallel");
+        }
         CountDownLatch latch = new CountDownLatch(children.size());
         for(AbstractBehavior child : children) {
             BehaviorRunnable childRunnable = new BehaviorRunnable(child);

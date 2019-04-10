@@ -46,6 +46,10 @@ public abstract class AbstractEntity {
     return orientation;
   }
 
+  public boolean isAlive() {
+    return isAlive;
+  }
+
   public void move(int x, int y) {
     this.x = x;
     this.y = y;

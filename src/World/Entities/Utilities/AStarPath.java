@@ -38,7 +38,7 @@ public class AStarPath {
             current = cameFrom.get(current);
             path.add(current);
         }
-        this.path =(Point[]) path.toArray();
+        this.path = path.toArray(new Point[path.size()]);
     }
 
     private boolean aStar(Point start, Point goal) {
@@ -52,7 +52,7 @@ public class AStarPath {
         fScore.put(start, heuristicCostEstimate(start, goal));
 
         while(openSet.size() > 0) {
-            Point current = getPointWithLowestFScore(fScore);
+            Point current = getPointWithLowestFScore(fScore, openSet);
             if(current.equals(goal)) {
                 reconstructPath(cameFrom, current);
                 return true;
@@ -102,12 +102,12 @@ public class AStarPath {
         return Math.abs(goal.x - start.x) + Math.abs(goal.y - start.y);
     }
 
-    private Point getPointWithLowestFScore(HashMap<Point, Integer> fScore) {
-        if(fScore.keySet().size() == 0) {
+    private Point getPointWithLowestFScore(HashMap<Point, Integer> fScore, ArrayList<Point> openSet) {
+        if(openSet.size() == 0) {
             return null;
         }
-        Point currLowest = (Point) fScore.keySet().toArray()[0];
-        for(Point p : fScore.keySet()) {
+        Point currLowest = openSet.get(0);
+        for(Point p : openSet) {
            if(fScore.get(p) < fScore.get(currLowest)) {
                currLowest = p;
            }

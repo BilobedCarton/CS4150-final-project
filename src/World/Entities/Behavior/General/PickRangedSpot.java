@@ -20,6 +20,9 @@ public class PickRangedSpot extends AbstractBehavior {
 
     @Override
     public int execute() {
+        if(WorldController._instance.DEBUG_MODE) {
+            System.out.println("Debug - Picking spot to shoot player from");
+        }
         Point[] path = (Point[]) bb.get("Path");
         for(Point p : path) {
             RayToPlayer rayToPlayer = new RayToPlayer(p);

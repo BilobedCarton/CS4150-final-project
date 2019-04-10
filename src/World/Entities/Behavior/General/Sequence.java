@@ -2,15 +2,18 @@ package World.Entities.Behavior.General;
 
 import World.Entities.Behavior.AbstractBehavior;
 import World.Entities.Behavior.Blackboard;
+import World.WorldController;
 
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public class Sequence extends AbstractBehavior {
     List<AbstractBehavior> children;
 
-    public Sequence(Blackboard bb, List<AbstractBehavior> children) {
+    public Sequence(Blackboard bb, AbstractBehavior... children) {
         super(bb);
-        this.children = children;
+        this.children = new ArrayList<AbstractBehavior>(Arrays.asList(children));
     }
 
     @Override
@@ -24,6 +27,9 @@ public class Sequence extends AbstractBehavior {
 
     @Override
     public int execute() {
+        if(WorldController._instance.DEBUG_MODE) {
+            System.out.println("Debug - Running a sequence group");
+        }
         for(AbstractBehavior child : children) {
             int flag = child.execute();
             if(flag != 1) {
