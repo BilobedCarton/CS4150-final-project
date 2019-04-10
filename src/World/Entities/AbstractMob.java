@@ -2,7 +2,8 @@ package World.Entities;
 
 import World.Entities.Behavior.AbstractBehavior;
 import World.Entities.Behavior.Blackboard;
-import World.WorldController;
+
+import java.awt.*;
 
 public abstract class AbstractMob extends AbstractEntity {
     protected AbstractBehavior behaviorTree;
@@ -11,11 +12,9 @@ public abstract class AbstractMob extends AbstractEntity {
     protected int meleeDamage;
     protected int rangedDamage;
 
-    public AbstractMob(int x, int y, int maxHealth) {
-        super(x, y, maxHealth);
+    public AbstractMob(int x, int y, int maxHealth, int speed, Color color) {
+        super(x, y, maxHealth, speed, color);
         this.isEngaged = false;
-        this.bb = new Blackboard();
-        this.bb.put("This", this);
         this.resetBehavior();
     }
 

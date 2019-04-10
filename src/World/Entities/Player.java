@@ -15,23 +15,7 @@ public class Player extends AbstractEntity {
   }
 
   public Player(int x, int y) {
-    super(x, y, 100);
-    this.speed = 1;
-    this.maxRotation = Math.PI / 4;
-    this.maxRotationalAcceleration = Math.PI / 3;
-  }
-
-  @Override
-  public void draw() {
-    PApplet sketch = WorldController._instance.sketch;
-    int cellDimension = WorldController._instance.cellDimension;
-    sketch.stroke(Color.WHITE.getRed(), Color.WHITE.getGreen(), Color.WHITE.getBlue());
-    sketch.fill(Color.WHITE.getRed(), Color.WHITE.getGreen(), Color.WHITE.getBlue());
-    sketch.ellipse(
-            this.getX() * cellDimension + (cellDimension / 2),
-            this.getY() * cellDimension + (cellDimension / 2),
-            cellDimension - 1,
-            cellDimension - 1);
+    super(x, y, 100, 1, Color.WHITE);
   }
 
   public void parseInput(int keyCode) {

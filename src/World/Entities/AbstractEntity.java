@@ -1,23 +1,29 @@
 package World.Entities;
 
 
+import World.WorldController;
+import processing.core.PApplet;
+
+import java.awt.*;
+
 public abstract class AbstractEntity {
   private int x;
   private int y;
   private int maxHealth;
-  protected int health;
-  protected int speed;
-  protected double maxRotation;
-  protected double maxRotationalAcceleration;
+  private int health;
+  private int speed;
+  private float orientation;
+  private boolean isAlive;
+  private Color color;
 
-  protected boolean isAlive;
-
-  AbstractEntity(int x, int y, int maxHealth) {
+  AbstractEntity(int x, int y, int maxHealth, int speed, Color color) {
     this.x = x;
     this.y = y;
     this.maxHealth = maxHealth;
     this.health = maxHealth;
+    this.speed = speed;
     this.isAlive = true;
+    this.color = color;
   }
 
   public int getX() {
@@ -36,6 +42,10 @@ public abstract class AbstractEntity {
     return speed;
   }
 
+  public float getOrientation() {
+    return orientation;
+  }
+
   public void move(int x, int y) {
     this.x = x;
     this.y = y;
@@ -49,5 +59,21 @@ public abstract class AbstractEntity {
     }
   }
 
-  public abstract void draw();
+  public void changeOrientation(float orientation) {
+    this.orientation = orientation;
+  }
+
+  public void draw() {
+    if(this.isAlive) {
+      PApplet sketch = WorldController._instance.sketch;
+      int cellDimension = WorldController._instance.cellDimension;
+      sketch.stroke(Color.BLACK.getRed(), Color.BLACK.getGreen(), Color.BLACK.getBlue());
+      sketch.fill(color.getRed(), color.getGreen(), color.getBlue());
+      sketch.ellipse(
+              this.getX() * cellDimension + (cellDimension / 2),
+              this.getY() * cellDimension + (cellDimension / 2),
+              cellDimension - 1,
+              cellDimension - 1);
+    }
+  }
 }

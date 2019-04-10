@@ -13,6 +13,14 @@ public class CollectibleInstance {
     this.collectablePrototypeID = collectiblePrototype.getID();
   }
 
+  public int getX() {
+    return x;
+  }
+
+  public int getY() {
+    return y;
+  }
+
   public void collect() {
     WorldController._instance.collectiblePrototypes.get(collectablePrototypeID).applyEffects(this.x, this.y);
   }

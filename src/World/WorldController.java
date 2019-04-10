@@ -24,6 +24,8 @@ public class WorldController {
   // Reference to sketch so we can do certain draw actions here.
   public PApplet sketch;
 
+  public boolean resetMap;
+
   // This is in number of terrain cells (not pixels)
   public int mapWidth;
   public int mapHeight;
@@ -36,6 +38,7 @@ public class WorldController {
   private int[][] tiles;
   private List<AbstractMob> mobs;
   private List<CollectibleInstance> collectibles;
+  private int score;
   public Player player;
 
   public WorldController(int mapWidth, int mapHeight, int cellDimension, Random rand, PApplet sketch) {
@@ -45,10 +48,7 @@ public class WorldController {
     this.sketch = sketch;
     this.tiles = new int[mapWidth][mapHeight];
     this.rand = rand;
-    this.collectiblePrototypes = new ArrayList<>();
-    this.tileTypes = new ArrayList<>();
-    this.mobs = new ArrayList<>();
-    this.collectibles = new ArrayList<>();
+    this.score = 0;
 
     // Instantiate the global instance of the controller to this one.
     WorldController._instance = this;
@@ -61,6 +61,12 @@ public class WorldController {
   }
 
   private void setup() {
+    this.resetMap = false;
+    this.collectiblePrototypes = new ArrayList<>();
+    this.tileTypes = new ArrayList<>();
+    this.mobs = new ArrayList<>();
+    this.collectibles = new ArrayList<>();
+
     // begin world generation:
     LevelBuilder levelBuilder = new LevelBuilder(this.rand);
     this.generateTileTypes();
@@ -72,7 +78,12 @@ public class WorldController {
 
   public void executeTick() {
     for(AbstractMob mob : mobs) {
-      int flag = mob.executeBehavior();
+      mob.executeBehavior();
+    }
+    checkCollectibles();
+    applyTerrainEffects();
+    if(this.resetMap) {
+      WorldController.reset();
     }
   }
 
@@ -100,6 +111,11 @@ public class WorldController {
     player.draw();
   }
 
+  public void incrementScore() {
+    this.score++;
+    System.out.println("Score: " + score);
+  }
+
   public void placeCollectible(CollectibleInstance collectibleInstance) {
     this.collectibles.add(collectibleInstance);
   }
@@ -124,7 +140,7 @@ public class WorldController {
   // Generates the TileType objects we use to represent types of terrain
   private void generateTileTypes() {
     this.tileTypes.add(new TileType("Wall", null, Color.black, 0));
-    this.tileTypes.add(new TileType("Dirt", null, Color.gray, 0.4));
+    this.tileTypes.add(new TileType("Dirt", new ArrayList<>(), Color.gray, 0.4));
     this.tileTypes.add(new TileType("Water", Arrays.asList(new AbstractEffect[]{new HealEffect(1)}), Color.blue, 0.30));
     this.tileTypes.add(new TileType("Lava", Arrays.asList(new AbstractEffect[]{new HurtEffect(2)}), Color.RED.darker(), 0.3));
     //this.tileTypes.add(new TileType("Mud", Arrays.asList(new AbstractEffect[]{new SlowEffect(0.75)}), new Color(150, 75, 0).darker(), 0.23));
@@ -133,5 +149,31 @@ public class WorldController {
   private void generateCollectiblePrototypes() {
     this.collectiblePrototypes.add(new Treasure());
     this.collectiblePrototypes.add(new HealthPotion());
+  }
+
+  private void checkCollectibles() {
+    ArrayList<CollectibleInstance> collected = new ArrayList<>();
+    for(CollectibleInstance ci : collectibles) {
+      if(player.getX() == ci.getX() && player.getY() == ci.getY()) {
+        ci.collect();
+        collected.add(ci);
+      }
+    }
+    for(CollectibleInstance collectedInstance : collected) {
+      collectibles.remove(collectedInstance);
+    }
+  }
+
+  private void applyTerrainEffects() {
+    for(AbstractEntity entity : mobs) {
+      TileType tileOn = this.getTileTypeOfGivenTile(entity.getX(), entity.getY());
+      for (AbstractEffect effect : tileOn.getEffects()) {
+        effect.applyEffect(entity.getX(), entity.getY());
+      }
+    }
+    TileType tileOn = this.getTileTypeOfGivenTile(player.getX(), player.getY());
+    for (AbstractEffect effect : tileOn.getEffects()) {
+      effect.applyEffect(player.getX(), player.getY());
+    }
   }
 }
