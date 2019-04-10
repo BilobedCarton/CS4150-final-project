@@ -57,21 +57,30 @@ public class Player extends AbstractEntity {
   }
 
   public void movePlayer(moveDirection dir) {
+    int newX = this.getX();
+    int newY = this.getY();
     switch(dir) {
       case UP:
-        move(this.getX(), this.getY() - 1);
+        newY--;
         break;
       case LEFT:
-        move(this.getX() - 1, this.getY());
+        newX--;
         break;
       case DOWN:
-        move(this.getX(), this.getY() + 1);
+        newY++;
         break;
       case RIGHT:
-        move(this.getX() + 1, this.getY());
+        newX++;
         break;
       default:
         break;
+    }
+    // check if trying to move into a wall.
+    if(WorldController._instance.getTileTypeOfGivenTile(newX, newY).ID == 0) {
+      return;
+    }
+    else {
+      this.move(newX, newY);
     }
   }
 }

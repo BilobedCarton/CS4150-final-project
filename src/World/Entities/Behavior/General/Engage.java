@@ -1,20 +1,23 @@
 package World.Entities.Behavior.General;
 
+import World.Entities.AbstractMob;
 import World.Entities.Behavior.AbstractBehavior;
 import World.Entities.Behavior.Blackboard;
 
-public class Arrive extends AbstractBehavior {
-    public Arrive(Blackboard bb) {
+public class Engage extends AbstractBehavior {
+    public Engage(Blackboard bb) {
         super(bb);
     }
 
     @Override
     public AbstractBehavior duplicateWithNewBlackboard(Blackboard bb) {
-        return null;
+        this.bb = bb;
+        return this;
     }
 
     @Override
     public int execute() {
-        return 0;
+        ((AbstractMob) this.bb.get("This")).engage();
+        return 1;
     }
 }

@@ -122,10 +122,10 @@ public class WorldController {
   // Generates the TileType objects we use to represent types of terrain
   private void generateTileTypes() {
     this.tileTypes.add(new TileType("Wall", null, Color.black, 0));
-    this.tileTypes.add(new TileType("Dirt", Arrays.asList(new AbstractEffect[]{new ResetEffect()}), Color.gray, 0.35));
-    this.tileTypes.add(new TileType("Water", Arrays.asList(new AbstractEffect[]{new HealEffect(1), new ResetEffect()}), Color.blue, 0.20));
-    this.tileTypes.add(new TileType("Lava", Arrays.asList(new AbstractEffect[]{new HurtEffect(2), new ResetEffect()}), Color.RED.darker(), 0.22));
-    this.tileTypes.add(new TileType("Mud", Arrays.asList(new AbstractEffect[]{new SlowEffect(0.75)}), new Color(150, 75, 0).darker(), 0.23));
+    this.tileTypes.add(new TileType("Dirt", null, Color.gray, 0.4));
+    this.tileTypes.add(new TileType("Water", Arrays.asList(new AbstractEffect[]{new HealEffect(1)}), Color.blue, 0.30));
+    this.tileTypes.add(new TileType("Lava", Arrays.asList(new AbstractEffect[]{new HurtEffect(2)}), Color.RED.darker(), 0.3));
+    //this.tileTypes.add(new TileType("Mud", Arrays.asList(new AbstractEffect[]{new SlowEffect(0.75)}), new Color(150, 75, 0).darker(), 0.23));
   }
 
   private void generateCollectiblePrototypes() {

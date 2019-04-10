@@ -1,14 +1,21 @@
 package World.Entities;
 
 import World.Entities.Behavior.AbstractBehavior;
+import World.Entities.Behavior.Blackboard;
+import World.WorldController;
 
 public abstract class AbstractMob extends AbstractEntity {
     protected AbstractBehavior behaviorTree;
+    protected Blackboard bb;
+    protected boolean isEngaged;
     protected int meleeDamage;
     protected int rangedDamage;
 
     public AbstractMob(int x, int y, int maxHealth) {
         super(x, y, maxHealth);
+        this.isEngaged = false;
+        this.bb = new Blackboard();
+        this.bb.put("This", this);
         this.resetBehavior();
     }
 
@@ -24,5 +31,13 @@ public abstract class AbstractMob extends AbstractEntity {
 
     public int getRangedDamage() {
         return rangedDamage;
+    }
+
+    public boolean isEngaged() {
+        return isEngaged;
+    }
+
+    public void engage() {
+        this.isEngaged = true;
     }
 }
