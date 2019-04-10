@@ -11,15 +11,12 @@ public class Player extends AbstractEntity {
     UP,
     LEFT,
     DOWN,
-    RIGHT,
-    NONE
+    RIGHT
   }
 
   public Player(int x, int y) {
     super(x, y, 100);
-    this.currentSpeed = new PVector(0, 0);
-    this.maxSpeed = 15;
-    this.maxAcceleration = 12;
+    this.speed = 1;
     this.maxRotation = Math.PI / 4;
     this.maxRotationalAcceleration = Math.PI / 3;
   }

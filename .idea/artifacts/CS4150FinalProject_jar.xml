@@ -1,0 +1,9 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="CS4150FinalProject:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/CS4150FinalProject_jar</output-path>
+    <root id="archive" name="CS4150FinalProject.jar">
+      <element id="module-output" name="CS4150FinalProject" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/core.jar" path-in-jar="/" />
+    </root>
+  </artifact>
+</component>

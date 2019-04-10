@@ -1,41 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="ArtifactsWorkspaceSettings">
+    <artifacts-to-build>
+      <artifact name="CS4150FinalProject:jar" />
+    </artifacts-to-build>
+  </component>
   <component name="ChangeListManager">
     <list default="true" id="403b22ba-f62e-4bee-ac65-74d04928498c" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/World/Entities/Behavior/General/BuildPathToPlayer.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/World/Entities/Behavior/General/Engage.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/World/Entities/Behavior/General/HasPathToPlayer.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/World/Entities/Behavior/General/IsEngaged.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/World/Entities/Behavior/General/MoveAlongPath.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/World/Entities/Behavior/General/PickMeleeSpot.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/World/Entities/Behavior/General/PickRangedSpot.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/World/Entities/Behavior/General/Selector.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/World/Entities/Behavior/General/Sequence.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/World/Entities/Utilities/AStarPath.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/World/Entities/Utilities/RayToPlayer.java" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/CS4150FinalProject/Sketch.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/CS4150FinalProject/World/Entities/AbstractMob.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/CS4150FinalProject/World/Entities/Behavior/General/Aim.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/CS4150FinalProject/World/Entities/Behavior/General/Arrive.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/CS4150FinalProject/World/Entities/Behavior/General/Buff.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/CS4150FinalProject/World/Entities/Behavior/General/CanSeePlayer.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/CS4150FinalProject/World/Entities/Behavior/General/Hit.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/CS4150FinalProject/World/Entities/Behavior/General/Shoot.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/World/Effects/ResetEffect.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/World/Effects/SlowEffect.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/World/Entities/Behavior/General/Aim.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/World/Entities/Behavior/General/Arrive.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/World/Entities/Behavior/General/Buff.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/World/Entities/Behavior/General/Hit.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/World/Entities/Behavior/General/Shoot.java" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/CS4150FinalProject/World/Entities/Behavior/AbstractBehavior.class" afterPath="$PROJECT_DIR$/out/production/CS4150FinalProject/World/Entities/Behavior/AbstractBehavior.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/META-INF/MANIFEST.MF" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/CS4150FinalProject/World/Effects/ResetEffect.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/CS4150FinalProject/World/Effects/SlowEffect.class" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/CS4150FinalProject/World/Entities/AbstractEntity.class" afterPath="$PROJECT_DIR$/out/production/CS4150FinalProject/World/Entities/AbstractEntity.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/CS4150FinalProject/World/Entities/Player.class" afterPath="$PROJECT_DIR$/out/production/CS4150FinalProject/World/Entities/Player.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/CS4150FinalProject/World/WorldController.class" afterPath="$PROJECT_DIR$/out/production/CS4150FinalProject/World/WorldController.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/World/Entities/AbstractEntity.java" afterPath="$PROJECT_DIR$/src/World/Entities/AbstractEntity.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/World/Entities/AbstractMob.java" afterPath="$PROJECT_DIR$/src/World/Entities/AbstractMob.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/World/Entities/Behavior/AbstractBehavior.java" afterPath="$PROJECT_DIR$/src/World/Entities/Behavior/AbstractBehavior.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/World/Entities/Behavior/General/CanSeePlayer.java" afterPath="$PROJECT_DIR$/src/World/Entities/Behavior/General/CanSeePlayer.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Sketch.java" afterPath="$PROJECT_DIR$/src/Sketch.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/World/Entities/Player.java" afterPath="$PROJECT_DIR$/src/World/Entities/Player.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/World/WorldController.java" afterPath="$PROJECT_DIR$/src/World/WorldController.java" />
     </list>
     <ignored path=".idea/" />
     <ignored path="$PROJECT_DIR$/out/" />
@@ -51,26 +31,12 @@
       <file leaf-file-name="Sketch.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Sketch.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="238">
-              <caret line="14" column="97" lean-forward="false" selection-start-line="14" selection-start-column="97" selection-end-line="14" selection-end-column="97" />
+            <state relative-caret-position="544">
+              <caret line="32" column="0" lean-forward="true" selection-start-line="32" selection-start-column="0" selection-end-line="32" selection-end-column="0" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#866#867#0" expanded="true" />
-                <element signature="e#885#886#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="MoveAlongPath.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/World/Entities/Behavior/General/MoveAlongPath.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="663">
-              <caret line="39" column="73" lean-forward="false" selection-start-line="39" selection-start-column="73" selection-end-line="39" selection-end-column="73" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#382#383#0" expanded="true" />
-                <element signature="e#407#408#0" expanded="true" />
+                <element signature="e#886#887#0" expanded="true" />
+                <element signature="e#905#906#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -90,83 +56,13 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Player.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="Player.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/World/Entities/Player.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="836">
-              <caret line="86" column="0" lean-forward="true" selection-start-line="86" selection-start-column="0" selection-end-line="86" selection-end-column="0" />
+            <state relative-caret-position="270">
+              <caret line="27" column="87" lean-forward="true" selection-start-line="27" selection-start-column="87" selection-end-line="27" selection-end-column="87" />
               <folding>
                 <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="PickMeleeSpot.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/World/Entities/Behavior/General/PickMeleeSpot.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="51">
-              <caret line="3" column="42" lean-forward="false" selection-start-line="3" selection-start-column="42" selection-end-line="3" selection-end-column="42" />
-              <folding>
-                <element signature="e#279#280#0" expanded="true" />
-                <element signature="e#304#305#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="PickRangedSpot.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/World/Entities/Behavior/General/PickRangedSpot.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="340">
-              <caret line="22" column="8" lean-forward="false" selection-start-line="22" selection-start-column="8" selection-end-line="30" selection-end-column="17" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="AbstractEntity.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/World/Entities/AbstractEntity.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="554">
-              <caret line="37" column="0" lean-forward="true" selection-start-line="37" selection-start-column="0" selection-end-line="37" selection-end-column="0" />
-              <folding>
-                <element signature="e#512#513#0" expanded="true" />
-                <element signature="e#530#531#0" expanded="true" />
-                <element signature="e#608#609#0" expanded="true" />
-                <element signature="e#630#631#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="AbstractBehavior.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/World/Entities/Behavior/AbstractBehavior.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="153">
-              <caret line="11" column="67" lean-forward="false" selection-start-line="11" selection-start-column="67" selection-end-line="11" selection-end-column="67" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="AbstractMob.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/World/Entities/AbstractMob.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="289">
-              <caret line="17" column="34" lean-forward="false" selection-start-line="17" selection-start-column="34" selection-end-line="17" selection-end-column="34" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#659#660#0" expanded="true" />
-                <element signature="e#703#704#0" expanded="true" />
-                <element signature="e#851#852#0" expanded="true" />
-                <element signature="e#886#887#0" expanded="true" />
-                <element signature="e#920#921#0" expanded="true" />
-                <element signature="e#952#953#0" expanded="true" />
-                <element signature="e#980#981#0" expanded="true" />
-                <element signature="e#1017#1018#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -221,19 +117,19 @@
         <option value="$PROJECT_DIR$/src/World/Entities/Behavior/General/Sequence.java" />
         <option value="$PROJECT_DIR$/src/World/Entities/Behavior/General/Engage.java" />
         <option value="$PROJECT_DIR$/src/World/Entities/AbstractMob.java" />
-        <option value="$PROJECT_DIR$/src/World/Entities/Player.java" />
         <option value="$PROJECT_DIR$/src/World/Entities/Utilities/VisionPath.java" />
         <option value="$PROJECT_DIR$/src/World/Entities/Utilities/RayToPlayer.java" />
         <option value="$PROJECT_DIR$/src/World/Entities/Behavior/General/CanSeePlayer.java" />
         <option value="$PROJECT_DIR$/src/World/Entities/Behavior/General/HasPathToPlayer.java" />
         <option value="$PROJECT_DIR$/src/World/Entities/Behavior/General/PickRangedSpot.java" />
         <option value="$PROJECT_DIR$/src/World/Entities/Behavior/General/PickMeleeSpot.java" />
-        <option value="$PROJECT_DIR$/src/Sketch.java" />
         <option value="$PROJECT_DIR$/src/World/Entities/Behavior/General/BuildPathToPlayer.java" />
         <option value="$PROJECT_DIR$/src/World/Entities/Utilities/AStarPath.java" />
         <option value="$PROJECT_DIR$/src/World/WorldController.java" />
         <option value="$PROJECT_DIR$/src/World/Entities/AbstractEntity.java" />
         <option value="$PROJECT_DIR$/src/World/Entities/Behavior/General/MoveAlongPath.java" />
+        <option value="$PROJECT_DIR$/src/Sketch.java" />
+        <option value="$PROJECT_DIR$/src/World/Entities/Player.java" />
       </list>
     </option>
   </component>
@@ -267,6 +163,24 @@
             <path>
               <item name="CS4150-Final-Project" type="b2602c69:ProjectViewProjectNode" />
               <item name="CS4150-Final-Project" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="CS4150-Final-Project" type="b2602c69:ProjectViewProjectNode" />
+              <item name="CS4150-Final-Project" type="462c0819:PsiDirectoryNode" />
+              <item name="out" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="CS4150-Final-Project" type="b2602c69:ProjectViewProjectNode" />
+              <item name="CS4150-Final-Project" type="462c0819:PsiDirectoryNode" />
+              <item name="out" type="462c0819:PsiDirectoryNode" />
+              <item name="artifacts" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="CS4150-Final-Project" type="b2602c69:ProjectViewProjectNode" />
+              <item name="CS4150-Final-Project" type="462c0819:PsiDirectoryNode" />
+              <item name="out" type="462c0819:PsiDirectoryNode" />
+              <item name="artifacts" type="462c0819:PsiDirectoryNode" />
+              <item name="CS4150FinalProject_jar" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="CS4150-Final-Project" type="b2602c69:ProjectViewProjectNode" />
@@ -349,10 +263,10 @@
   </component>
   <component name="PropertiesComponent">
     <property name="settings.editor.selected.configurable" value="vcs.Git" />
-    <property name="project.structure.last.edited" value="Libraries" />
+    <property name="project.structure.last.edited" value="Artifacts" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.2" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/out/artifacts/CS4150FinalProject_jar/CS4150FinalProject.jar" />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -366,7 +280,19 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Application.Sketch">
+  <component name="RunManager" selected="JAR Application.CS4150FinalProjectJar">
+    <configuration name="CS4150FinalProjectJar" type="JarApplication" factoryName="JAR Application">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <option name="JAR_PATH" value="$PROJECT_DIR$/out/artifacts/CS4150FinalProject_jar/CS4150FinalProject.jar" />
+      <option name="WORKING_DIRECTORY" value="C:\Users\rando\Desktop\cs4150\CS4150FinalProject\CS4150-Final-Project" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <envs />
+      <method>
+        <option name="BuildArtifacts" enabled="true">
+          <artifact name="CS4150FinalProject:jar" />
+        </option>
+      </method>
+    </configuration>
     <configuration name="Sketch" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
       <option name="MAIN_CLASS_NAME" value="Sketch" />
@@ -462,6 +388,10 @@
       <properties />
       <listeners />
     </configuration>
+    <list size="2">
+      <item index="0" class="java.lang.String" itemvalue="JAR Application.CS4150FinalProjectJar" />
+      <item index="1" class="java.lang.String" itemvalue="Application.Sketch" />
+    </list>
     <recent_temporary>
       <list size="1">
         <item index="0" class="java.lang.String" itemvalue="Application.Sketch" />
@@ -487,13 +417,13 @@
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32685384" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32685384" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24046077" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24046077" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
@@ -745,14 +675,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/World/Entities/Behavior/AbstractBehavior.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="11" column="67" lean-forward="false" selection-start-line="11" selection-start-column="67" selection-end-line="11" selection-end-column="67" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/World/Entities/Behavior/General/Selector.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="136">
@@ -843,45 +765,12 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/World/Entities/Player.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="836">
-          <caret line="86" column="0" lean-forward="true" selection-start-line="86" selection-start-column="0" selection-end-line="86" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/World/Entities/Behavior/General/PickRangedSpot.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="340">
           <caret line="22" column="8" lean-forward="false" selection-start-line="22" selection-start-column="8" selection-end-line="30" selection-end-column="17" />
           <folding>
             <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/World/Entities/Behavior/General/PickMeleeSpot.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="51">
-          <caret line="3" column="42" lean-forward="false" selection-start-line="3" selection-start-column="42" selection-end-line="3" selection-end-column="42" />
-          <folding>
-            <element signature="e#279#280#0" expanded="true" />
-            <element signature="e#304#305#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Sketch.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="14" column="97" lean-forward="false" selection-start-line="14" selection-start-column="97" selection-end-line="14" selection-end-column="97" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#866#867#0" expanded="true" />
-            <element signature="e#885#886#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -953,12 +842,53 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/World/Entities/Behavior/General/MoveAlongPath.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="663">
-          <caret line="39" column="73" lean-forward="false" selection-start-line="39" selection-start-column="73" selection-end-line="39" selection-end-column="73" />
+        <state relative-caret-position="578">
+          <caret line="34" column="149" lean-forward="true" selection-start-line="34" selection-start-column="149" selection-end-line="34" selection-end-column="149" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#382#383#0" expanded="true" />
             <element signature="e#407#408#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Sketch.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="544">
+          <caret line="32" column="0" lean-forward="true" selection-start-line="32" selection-start-column="0" selection-end-line="32" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#886#887#0" expanded="true" />
+            <element signature="e#905#906#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/World/Entities/Behavior/General/PickMeleeSpot.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="51">
+          <caret line="3" column="42" lean-forward="false" selection-start-line="3" selection-start-column="42" selection-end-line="3" selection-end-column="42" />
+          <folding>
+            <element signature="e#279#280#0" expanded="true" />
+            <element signature="e#304#305#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/World/Entities/Behavior/AbstractBehavior.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="11" column="67" lean-forward="false" selection-start-line="11" selection-start-column="67" selection-end-line="11" selection-end-column="67" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/World/Entities/Player.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="270">
+          <caret line="27" column="87" lean-forward="true" selection-start-line="27" selection-start-column="87" selection-end-line="27" selection-end-column="87" />
+          <folding>
+            <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -969,10 +899,12 @@
       <state key="ArtifactsStructureConfigurable.UI">
         <settings>
           <artifact-editor />
+          <last-edited>CS4150FinalProject:jar</last-edited>
           <splitter-proportions>
             <option name="proportions">
               <list>
                 <option value="0.2" />
+                <option value="0.5" />
               </list>
             </option>
           </splitter-proportions>

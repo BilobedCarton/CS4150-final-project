@@ -27,6 +27,7 @@ public class Sketch extends PApplet {
 
   public void settings() {
     size(MAP_WIDTH, MAP_HEIGHT);
+    frameRate = 60;
     WorldController.reset();
   }
 
