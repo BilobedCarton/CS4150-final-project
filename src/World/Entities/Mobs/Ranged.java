@@ -8,7 +8,7 @@ import java.awt.*;
 
 public class Ranged extends AbstractMob {
     public Ranged(int x, int y) {
-        super(x, y, 30, 2, Color.ORANGE);
+        super(x, y, 30, 2, Color.GREEN);
         this.meleeDamage = 0;
         this.rangedDamage = 10;
     }

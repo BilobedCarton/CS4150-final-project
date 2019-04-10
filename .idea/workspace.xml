@@ -7,55 +7,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="403b22ba-f62e-4bee-ac65-74d04928498c" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/production/CS4150FinalProject/World/Entities/Behavior/BehaviorTreeLibrary.class" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/production/CS4150FinalProject/World/Entities/Behavior/General/IsAdjacentToPlayer.class" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/production/CS4150FinalProject/World/Entities/Mobs/Ranged.class" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/World/Entities/Behavior/BehaviorTreeLibrary.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/World/Entities/Behavior/General/IsAdjacentToPlayer.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/World/Entities/Mobs/Ranged.java" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/CS4150FinalProject/World/WorldController.class" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/artifacts/CS4150FinalProject_jar/CS4150FinalProject.jar" afterPath="$PROJECT_DIR$/out/artifacts/CS4150FinalProject_jar/CS4150FinalProject.jar" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/CS4150FinalProject/Sketch.class" afterPath="$PROJECT_DIR$/out/production/CS4150FinalProject/Sketch.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/CS4150FinalProject/World/Entities/AbstractEntity.class" afterPath="$PROJECT_DIR$/out/production/CS4150FinalProject/World/Entities/AbstractEntity.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/CS4150FinalProject/World/Entities/AbstractMob.class" afterPath="$PROJECT_DIR$/out/production/CS4150FinalProject/World/Entities/AbstractMob.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/CS4150FinalProject/World/Entities/Behavior/Blackboard.class" afterPath="$PROJECT_DIR$/out/production/CS4150FinalProject/World/Entities/Behavior/Blackboard.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/CS4150FinalProject/World/Entities/Behavior/General/BuildPathToPlayer.class" afterPath="$PROJECT_DIR$/out/production/CS4150FinalProject/World/Entities/Behavior/General/BuildPathToPlayer.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/CS4150FinalProject/World/Entities/Behavior/General/CanSeePlayer.class" afterPath="$PROJECT_DIR$/out/production/CS4150FinalProject/World/Entities/Behavior/General/CanSeePlayer.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/CS4150FinalProject/World/Entities/Behavior/General/Engage.class" afterPath="$PROJECT_DIR$/out/production/CS4150FinalProject/World/Entities/Behavior/General/Engage.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/CS4150FinalProject/World/Entities/Behavior/General/FacePlayer.class" afterPath="$PROJECT_DIR$/out/production/CS4150FinalProject/World/Entities/Behavior/General/FacePlayer.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/CS4150FinalProject/World/Entities/Behavior/General/HasPathToPlayer.class" afterPath="$PROJECT_DIR$/out/production/CS4150FinalProject/World/Entities/Behavior/General/HasPathToPlayer.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/CS4150FinalProject/World/Entities/Behavior/General/IsEngaged.class" afterPath="$PROJECT_DIR$/out/production/CS4150FinalProject/World/Entities/Behavior/General/IsEngaged.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/CS4150FinalProject/World/Entities/Behavior/General/MoveAlongPath.class" afterPath="$PROJECT_DIR$/out/production/CS4150FinalProject/World/Entities/Behavior/General/MoveAlongPath.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/CS4150FinalProject/World/Entities/Behavior/General/Parallel$BehaviorRunnable.class" afterPath="$PROJECT_DIR$/out/production/CS4150FinalProject/World/Entities/Behavior/General/Parallel$BehaviorRunnable.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/CS4150FinalProject/World/Entities/Behavior/General/Parallel.class" afterPath="$PROJECT_DIR$/out/production/CS4150FinalProject/World/Entities/Behavior/General/Parallel.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/CS4150FinalProject/World/Entities/Behavior/General/PickMeleeSpot.class" afterPath="$PROJECT_DIR$/out/production/CS4150FinalProject/World/Entities/Behavior/General/PickMeleeSpot.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/CS4150FinalProject/World/Entities/Behavior/General/PickRangedSpot.class" afterPath="$PROJECT_DIR$/out/production/CS4150FinalProject/World/Entities/Behavior/General/PickRangedSpot.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/CS4150FinalProject/World/Entities/Behavior/General/Selector.class" afterPath="$PROJECT_DIR$/out/production/CS4150FinalProject/World/Entities/Behavior/General/Selector.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/CS4150FinalProject/World/Entities/Behavior/General/Sequence.class" afterPath="$PROJECT_DIR$/out/production/CS4150FinalProject/World/Entities/Behavior/General/Sequence.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/CS4150FinalProject/World/Entities/Mobs/Melee.class" afterPath="$PROJECT_DIR$/out/production/CS4150FinalProject/World/Entities/Mobs/Melee.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/CS4150FinalProject/World/Entities/Utilities/AStarPath.class" afterPath="$PROJECT_DIR$/out/production/CS4150FinalProject/World/Entities/Utilities/AStarPath.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/CS4150FinalProject/World/Entities/Utilities/RayToPlayer.class" afterPath="$PROJECT_DIR$/out/production/CS4150FinalProject/World/Entities/Utilities/RayToPlayer.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Sketch.java" afterPath="$PROJECT_DIR$/src/Sketch.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/readme.txt" afterPath="$PROJECT_DIR$/readme.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/World/Entities/AbstractEntity.java" afterPath="$PROJECT_DIR$/src/World/Entities/AbstractEntity.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/World/Entities/AbstractMob.java" afterPath="$PROJECT_DIR$/src/World/Entities/AbstractMob.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/World/Entities/Behavior/Blackboard.java" afterPath="$PROJECT_DIR$/src/World/Entities/Behavior/Blackboard.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/World/Entities/Behavior/General/BuildPathToPlayer.java" afterPath="$PROJECT_DIR$/src/World/Entities/Behavior/General/BuildPathToPlayer.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/World/Entities/Behavior/General/CanSeePlayer.java" afterPath="$PROJECT_DIR$/src/World/Entities/Behavior/General/CanSeePlayer.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/World/Entities/Behavior/General/Engage.java" afterPath="$PROJECT_DIR$/src/World/Entities/Behavior/General/Engage.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/World/Entities/Behavior/General/FacePlayer.java" afterPath="$PROJECT_DIR$/src/World/Entities/Behavior/General/FacePlayer.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/World/Entities/Behavior/General/HasPathToPlayer.java" afterPath="$PROJECT_DIR$/src/World/Entities/Behavior/General/HasPathToPlayer.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/World/Entities/Behavior/General/IsEngaged.java" afterPath="$PROJECT_DIR$/src/World/Entities/Behavior/General/IsEngaged.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/World/Entities/Behavior/General/MoveAlongPath.java" afterPath="$PROJECT_DIR$/src/World/Entities/Behavior/General/MoveAlongPath.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/World/Entities/Behavior/General/Parallel.java" afterPath="$PROJECT_DIR$/src/World/Entities/Behavior/General/Parallel.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/World/Entities/Behavior/General/PickMeleeSpot.java" afterPath="$PROJECT_DIR$/src/World/Entities/Behavior/General/PickMeleeSpot.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/World/Entities/Behavior/General/PickRangedSpot.java" afterPath="$PROJECT_DIR$/src/World/Entities/Behavior/General/PickRangedSpot.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/World/Entities/Behavior/General/Selector.java" afterPath="$PROJECT_DIR$/src/World/Entities/Behavior/General/Selector.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/World/Entities/Behavior/General/Sequence.java" afterPath="$PROJECT_DIR$/src/World/Entities/Behavior/General/Sequence.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/World/Entities/Mobs/Melee.java" afterPath="$PROJECT_DIR$/src/World/Entities/Mobs/Melee.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/World/Entities/Utilities/AStarPath.java" afterPath="$PROJECT_DIR$/src/World/Entities/Utilities/AStarPath.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/World/Entities/Utilities/RayToPlayer.java" afterPath="$PROJECT_DIR$/src/World/Entities/Utilities/RayToPlayer.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/World/WorldController.java" afterPath="$PROJECT_DIR$/src/World/WorldController.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/World/Entities/Mobs/Ranged.java" afterPath="$PROJECT_DIR$/src/World/Entities/Mobs/Ranged.java" />
     </list>
     <ignored path=".idea/" />
     <ignored path="$PROJECT_DIR$/out/" />
@@ -80,7 +35,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="WorldController.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="WorldController.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/World/WorldController.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="731">
@@ -92,16 +47,22 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="AbstractMob.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/World/Entities/AbstractMob.java">
+      <file leaf-file-name="Ranged.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/World/Entities/Mobs/Ranged.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="650">
-              <caret line="51" column="65" lean-forward="false" selection-start-line="51" selection-start-column="65" selection-end-line="51" selection-end-column="65" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#1072#1073#0" expanded="true" />
-                <element signature="e#1117#1118#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="306">
+              <caret line="22" column="0" lean-forward="true" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="readme.txt" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/readme.txt">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="119">
+              <caret line="7" column="150" lean-forward="false" selection-start-line="7" selection-start-column="150" selection-end-line="7" selection-end-column="150" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -109,12 +70,14 @@
       <file leaf-file-name="AbstractEntity.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/World/Entities/AbstractEntity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="452">
-              <caret line="49" column="19" lean-forward="false" selection-start-line="49" selection-start-column="19" selection-end-line="49" selection-end-column="19" />
+            <state relative-caret-position="520">
+              <caret line="53" column="4" lean-forward="false" selection-start-line="53" selection-start-column="4" selection-end-line="53" selection-end-column="17" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#845#846#0" expanded="true" />
                 <element signature="e#869#870#0" expanded="true" />
+                <element signature="e#898#899#0" expanded="true" />
+                <element signature="e#920#921#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -181,7 +144,6 @@
         <option value="$PROJECT_DIR$/src/World/Entities/Behavior/Blackboard.java" />
         <option value="$PROJECT_DIR$/src/World/Entities/Mobs/Melee.java" />
         <option value="$PROJECT_DIR$/src/World/Entities/Utilities/AStarPath.java" />
-        <option value="$PROJECT_DIR$/src/World/Entities/Mobs/Ranged.java" />
         <option value="$PROJECT_DIR$/src/World/Entities/Utilities/RayToPlayer.java" />
         <option value="$PROJECT_DIR$/src/World/Entities/Behavior/BehaviorTreeLibrary.java" />
         <option value="$PROJECT_DIR$/src/World/Entities/Behavior/General/BuildPathToPlayer.java" />
@@ -197,10 +159,12 @@
         <option value="$PROJECT_DIR$/src/World/Entities/Behavior/General/Selector.java" />
         <option value="$PROJECT_DIR$/src/World/Entities/Behavior/General/Sequence.java" />
         <option value="$PROJECT_DIR$/src/World/Entities/Behavior/General/MoveAlongPath.java" />
-        <option value="$PROJECT_DIR$/src/World/Entities/AbstractEntity.java" />
-        <option value="$PROJECT_DIR$/src/World/Entities/AbstractMob.java" />
         <option value="$PROJECT_DIR$/src/Sketch.java" />
         <option value="$PROJECT_DIR$/src/World/WorldController.java" />
+        <option value="$PROJECT_DIR$/src/World/Entities/AbstractEntity.java" />
+        <option value="$PROJECT_DIR$/src/World/Entities/AbstractMob.java" />
+        <option value="$PROJECT_DIR$/src/World/Entities/Mobs/Ranged.java" />
+        <option value="$PROJECT_DIR$/readme.txt" />
       </list>
     </option>
   </component>
@@ -555,7 +519,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/World/Obstacles/ObstacleInstance.java" />
     <entry file="file://$PROJECT_DIR$/.idea/workspace.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -802,14 +765,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/World/Entities/Mobs/Ranged.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="19" column="28" lean-forward="false" selection-start-line="19" selection-start-column="28" selection-end-line="19" selection-end-column="28" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/World/Entities/Utilities/RayToPlayer.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="374">
@@ -966,36 +921,38 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/World/Entities/AbstractEntity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="452">
-          <caret line="49" column="19" lean-forward="false" selection-start-line="49" selection-start-column="19" selection-end-line="49" selection-end-column="19" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#845#846#0" expanded="true" />
-            <element signature="e#869#870#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/World/Entities/AbstractMob.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="650">
-          <caret line="51" column="65" lean-forward="false" selection-start-line="51" selection-start-column="65" selection-end-line="51" selection-end-column="65" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#1072#1073#0" expanded="true" />
-            <element signature="e#1117#1118#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Sketch.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="735">
           <caret line="57" column="21" lean-forward="false" selection-start-line="57" selection-start-column="21" selection-end-line="57" selection-end-column="21" />
           <folding>
             <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/World/Entities/AbstractEntity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="520">
+          <caret line="53" column="4" lean-forward="false" selection-start-line="53" selection-start-column="4" selection-end-line="53" selection-end-column="17" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#845#846#0" expanded="true" />
+            <element signature="e#869#870#0" expanded="true" />
+            <element signature="e#898#899#0" expanded="true" />
+            <element signature="e#920#921#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/World/Entities/AbstractMob.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="752">
+          <caret line="57" column="99" lean-forward="false" selection-start-line="57" selection-start-column="99" selection-end-line="57" selection-end-column="99" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#1072#1073#0" expanded="true" />
+            <element signature="e#1117#1118#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1007,6 +964,22 @@
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/World/Entities/Mobs/Ranged.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="306">
+          <caret line="22" column="0" lean-forward="true" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/readme.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="7" column="150" lean-forward="false" selection-start-line="7" selection-start-column="150" selection-end-line="7" selection-end-column="150" />
+          <folding />
         </state>
       </provider>
     </entry>

@@ -50,6 +50,10 @@ public abstract class AbstractEntity {
     return isAlive;
   }
 
+  public Color getColor() {
+    return color;
+  }
+
   public void move(int x, int y) {
     this.x = x;
     this.y = y;

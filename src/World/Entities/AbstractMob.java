@@ -55,7 +55,7 @@ public abstract class AbstractMob extends AbstractEntity {
                 PApplet sketch = WorldController._instance.sketch;
                 int cellDimension = WorldController._instance.cellDimension;
                 sketch.fill(Color.BLACK.getRed(), Color.BLACK.getGreen(), Color.BLACK.getBlue());
-                sketch.stroke(Color.pink.getRed(), Color.pink.getGreen(), Color.pink.getBlue());
+                sketch.stroke(this.getColor().getRed(), this.getColor().getGreen(), this.getColor().getBlue());
                 sketch.ellipse(
                         target.x * cellDimension + (cellDimension / 2),
                         target.y * cellDimension + (cellDimension / 2),
