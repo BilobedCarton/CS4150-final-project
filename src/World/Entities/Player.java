@@ -7,7 +7,13 @@ import processing.core.PVector;
 import java.awt.*;
 
 public class Player extends AbstractEntity {
-  private boolean moveLeft, moveUp, moveRight, moveDown;
+  public enum moveDirection {
+    UP,
+    LEFT,
+    DOWN,
+    RIGHT,
+    NONE
+  }
 
   public Player(int x, int y) {
     super(x, y, 100);
@@ -22,42 +28,50 @@ public class Player extends AbstractEntity {
   public void draw() {
     PApplet sketch = WorldController._instance.sketch;
     int cellDimension = WorldController._instance.cellDimension;
-    sketch.stroke(Color.RED.getRed(), Color.RED.getGreen(), Color.RED.getBlue());
-    sketch.fill(Color.RED.getRed(), Color.RED.getGreen(), Color.RED.getBlue());
+    sketch.stroke(Color.WHITE.getRed(), Color.WHITE.getGreen(), Color.WHITE.getBlue());
+    sketch.fill(Color.WHITE.getRed(), Color.WHITE.getGreen(), Color.WHITE.getBlue());
     sketch.ellipse(
-            this.getX(),
-            this.getY(),
+            this.getX() * cellDimension + (cellDimension / 2),
+            this.getY() * cellDimension + (cellDimension / 2),
             cellDimension - 1,
             cellDimension - 1);
   }
 
-  public void setMove(int k, boolean b) {
-    switch (k) {
-      case 87:
-        moveUp = b;
+  public void parseInput(int keyCode) {
+    switch(keyCode) {
+      case 'w':
+        movePlayer(moveDirection.UP);
         break;
-      case 83:
-        moveDown = b;
+      case 'a':
+        movePlayer(moveDirection.LEFT);
         break;
-      case 68:
-        moveRight = b;
+      case 's':
+        movePlayer(moveDirection.DOWN);
         break;
-      case 65:
-        moveLeft = b;
+      case 'd':
+        movePlayer(moveDirection.RIGHT);
         break;
       default:
-        return;
+        break;
     }
   }
 
-  public void movePlayer() {
-    int x = this.getX() + this.maxSpeed * ((this.moveRight ? 1 : 0) - (this.moveLeft ? 1 : 0));
-    int y = this.getY() + this.maxSpeed * ((this.moveDown ? 1 : 0) - (this.moveUp ? 1 : 0));
-    if(WorldController._instance.getTileTypeOfGivenTile(this.getX() / WorldController._instance.cellDimension, this.getY() / WorldController._instance.cellDimension).ID == 0) {
-      return;
-    }
-    else {
-      this.move(x, y);
+  public void movePlayer(moveDirection dir) {
+    switch(dir) {
+      case UP:
+        move(this.getX(), this.getY() - 1);
+        break;
+      case LEFT:
+        move(this.getX() - 1, this.getY());
+        break;
+      case DOWN:
+        move(this.getX(), this.getY() + 1);
+        break;
+      case RIGHT:
+        move(this.getX() + 1, this.getY());
+        break;
+      default:
+        break;
     }
   }
 }

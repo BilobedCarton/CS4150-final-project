@@ -1,8 +1,9 @@
+import java.util.Arrays;
+import java.util.List;
 import java.util.Random;
 
 import World.WorldController;
 import processing.core.PApplet;
-import processing.event.Event;
 
 public class Sketch extends PApplet {
 
@@ -11,6 +12,7 @@ public class Sketch extends PApplet {
   private static int MAP_HEIGHT = 645;
   private static int CELL_DIMENSION = 15;
   private static WorldController wc;
+  private final List<Character> validInputs = Arrays.asList(new Character[]{'w', 'a', 's', 'd'});
 
   public Sketch(String seed) {
     super();
@@ -29,7 +31,6 @@ public class Sketch extends PApplet {
   }
 
   public void draw() {
-    wc.player.movePlayer();
     wc.draw();
   }
 
@@ -38,12 +39,11 @@ public class Sketch extends PApplet {
     WorldController.reset();
   }
 
-  public void keyPressed() {
-    this.wc.player.setMove(keyCode, true);
-  }
-
   public void keyReleased() {
-    this.wc.player.setMove(keyCode, false);
+    if(validInputs.contains(key)) {
+      wc.player.parseInput(key);
+      wc.executeTick();
+    }
   }
 
   public static void main(String[] args) {

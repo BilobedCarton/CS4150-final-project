@@ -49,7 +49,6 @@ public class WorldController {
     this.tileTypes = new ArrayList<>();
     this.mobs = new ArrayList<>();
     this.collectibles = new ArrayList<>();
-    this.player = new Player(mapWidth / 2 * cellDimension, mapHeight / 2  * cellDimension);
 
     // Instantiate the global instance of the controller to this one.
     WorldController._instance = this;
@@ -68,6 +67,11 @@ public class WorldController {
     this.generateCollectiblePrototypes();
     levelBuilder.buildLevel(this.tileTypes, this.collectiblePrototypes);
     this.tiles = levelBuilder.getMap();
+    this.player = new Player(mapWidth / 2, mapHeight / 2);
+  }
+
+  public void executeTick() {
+    // STUB for executing a tick of the game (i.e. every time the player takes an action).
   }
 
   public void draw() {
