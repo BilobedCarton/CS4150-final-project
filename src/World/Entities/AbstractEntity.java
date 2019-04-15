@@ -7,6 +7,9 @@ import processing.core.PApplet;
 import java.awt.*;
 
 public abstract class AbstractEntity {
+  private static int ID_COUNTER;
+
+  private int ID;
   private int x;
   private int y;
   private int maxHealth;
@@ -24,6 +27,15 @@ public abstract class AbstractEntity {
     this.speed = speed;
     this.isAlive = true;
     this.color = color;
+    this.ID = ID_COUNTER++;
+  }
+
+  public static void resetIDCounter() {
+    AbstractEntity.ID_COUNTER = 0;
+  }
+
+  public int getID() {
+    return ID;
   }
 
   public int getX() {
@@ -83,5 +95,14 @@ public abstract class AbstractEntity {
               cellDimension - 1,
               cellDimension - 1);
     }
+  }
+
+  @Override
+  public boolean equals(Object obj) {
+    if((obj instanceof AbstractEntity) == false) {
+      return false;
+    }
+    AbstractEntity ae = (AbstractEntity) obj;
+    return this.ID == ae.ID;
   }
 }

@@ -26,15 +26,14 @@ public class AStarPath {
     public Point[] path;
     public boolean succeeded;
 
-    // For use in heuristic calculation
-    private int damageDealtByEntity;
+    private AbstractMob mob;
 
     public AStarPath(AbstractEntity a, AbstractEntity b, AbstractMob mob) {
         this(new Point(a.getX(), a.getY()), new Point(b.getX(), b.getY()), mob);
     }
 
     public AStarPath(Point a, Point b, AbstractMob mob) {
-        this.damageDealtByEntity = Math.max(mob.getMeleeDamage(), mob.getRangedDamage());
+        this.mob = mob;
         this.succeeded = aStar(a, b);
     }
 
@@ -97,6 +96,10 @@ public class AStarPath {
         int cost = Math.abs(goal.x - start.x) + Math.abs(goal.y - start.y);
         // If our health would be changed by stepping onto this point we should consider this as well. Healing is good.
         cost -= getChangeInHealthFromTile(start);
+        // If there is an entity in the way we should go around;
+        if(WorldController._instance.getEntitiesOnTile(start.x, start.y).size() > 0 && WorldController._instance.getEntitiesOnTile(start.x, start.y).get(0).equals(this.mob) == false) {
+            cost += 50;
+        }
         return cost;
     }
 

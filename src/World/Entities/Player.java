@@ -1,8 +1,6 @@
 package World.Entities;
 
 import World.WorldController;
-import processing.core.PApplet;
-import processing.core.PVector;
 
 import java.awt.*;
 
@@ -58,6 +56,10 @@ public class Player extends AbstractEntity {
     }
     // check if trying to move into a wall.
     if(WorldController._instance.getTileTypeOfGivenTile(newX, newY).ID == 0) {
+      return;
+    }
+    // check if trying to move into another entity.
+    if(WorldController._instance.getEntitiesOnTile(newX, newY).size() > 0) {
       return;
     }
     else {

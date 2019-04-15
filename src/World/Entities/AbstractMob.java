@@ -13,6 +13,9 @@ public abstract class AbstractMob extends AbstractEntity {
     protected boolean isEngaged;
     protected int meleeDamage;
     protected int rangedDamage;
+    // This is out of 5 - when we hit 5 we are ready to attack again.
+    protected int reloadProgress;
+    private static final int RELOAD_CAP = 5;
 
     public AbstractMob(int x, int y, int maxHealth, int speed, Color color) {
         super(x, y, maxHealth, speed, color);
@@ -34,6 +37,15 @@ public abstract class AbstractMob extends AbstractEntity {
         return rangedDamage;
     }
 
+    public void incrementReload() {
+        this.reloadProgress++;
+        this.reloadProgress = Math.min(this.reloadProgress, RELOAD_CAP);
+    }
+
+    public boolean canAttack() {
+        return this.reloadProgress == RELOAD_CAP;
+    }
+
     public boolean isEngaged() {
         return isEngaged;
     }
@@ -44,6 +56,10 @@ public abstract class AbstractMob extends AbstractEntity {
 
     public int executeBehavior() {
         return behaviorTree.execute();
+    }
+
+    public AbstractBehavior getBehaviorTree() {
+        return behaviorTree;
     }
 
     @Override

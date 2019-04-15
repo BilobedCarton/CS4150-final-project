@@ -27,10 +27,6 @@ public class MoveAlongPath extends AbstractBehavior {
         }
         Point[] path = (Point[]) bb.get("Path");
         AbstractMob mob = (AbstractMob) bb.get("This");
-        if(path.length <= 5) {
-            AStarPath newPath = new AStarPath(new Point(mob.getX(), mob.getY()), (Point) bb.get("TargetPoint"), mob);
-            path = newPath.path;
-        }
         int i = mob.getSpeed();
         Point nextPoint;
         while(i > 0) {
