@@ -19,4 +19,14 @@ public class HealEffect extends AbstractEffect {
       entity.changeHealth(magnitude);
     }
   }
+
+  @Override
+  public boolean effectsHealth() {
+    return true;
+  }
+
+  @Override
+  public int getMagnitude() {
+    return magnitude;
+  }
 }

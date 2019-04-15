@@ -1,6 +1,9 @@
 package World.Entities.Utilities;
 
+import World.Effects.AbstractEffect;
 import World.Entities.AbstractEntity;
+import World.Entities.AbstractMob;
+import World.Tiles.TileType;
 import World.WorldController;
 
 import java.awt.*;
@@ -23,11 +26,15 @@ public class AStarPath {
     public Point[] path;
     public boolean succeeded;
 
-    public AStarPath(AbstractEntity a, AbstractEntity b) {
-        this.succeeded = aStar(new Point(a.getX(), a.getY()), new Point(b.getX(), b.getY()));
+    // For use in heuristic calculation
+    private int damageDealtByEntity;
+
+    public AStarPath(AbstractEntity a, AbstractEntity b, AbstractMob mob) {
+        this(new Point(a.getX(), a.getY()), new Point(b.getX(), b.getY()), mob);
     }
 
-    public AStarPath(Point a, Point b) {
+    public AStarPath(Point a, Point b, AbstractMob mob) {
+        this.damageDealtByEntity = Math.max(mob.getMeleeDamage(), mob.getRangedDamage());
         this.succeeded = aStar(a, b);
     }
 
@@ -61,22 +68,9 @@ public class AStarPath {
             openSet.remove(current);
             closedSet.add(current);
 
-            for(int i = 0; i < 4; i++) {
-                Point neighbor;
-                if(i == 0) {
-                    neighbor = new Point(current.x - 1, current.y);
-                }
-                else if(i == 1) {
-                    neighbor = new Point(current.x, current.y - 1);
-                }
-                else if(i == 2) {
-                    neighbor = new Point(current.x + 1, current.y);
-                }
-                else {
-                    neighbor = new Point(current.x, current.y + 1);
-                }
-                // Skip walls
-                if(WorldController._instance.getTileTypeOfGivenTile(neighbor.x, neighbor.y).ID == 0) {
+            for(Point neighbor : getNeighbors(current)) {
+                // Skip impassable points
+                if(isImpassable(neighbor)) {
                     continue;
                 }
                 if(closedSet.contains(neighbor)) {
@@ -99,7 +93,11 @@ public class AStarPath {
     }
 
     private int heuristicCostEstimate(Point start, Point goal) {
-        return Math.abs(goal.x - start.x) + Math.abs(goal.y - start.y);
+        // Base cost is the simple distance to goal from start.
+        int cost = Math.abs(goal.x - start.x) + Math.abs(goal.y - start.y);
+        // If our health would be changed by stepping onto this point we should consider this as well. Healing is good.
+        cost -= getChangeInHealthFromTile(start);
+        return cost;
     }
 
     private Point getPointWithLowestFScore(HashMap<Point, Integer> fScore, ArrayList<Point> openSet) {
@@ -113,5 +111,30 @@ public class AStarPath {
            }
         }
         return currLowest;
+    }
+
+    private Point[] getNeighbors(Point current) {
+        Point[] neighbors = {
+                new Point(current.x - 1, current.y),
+                new Point(current.x, current.y - 1),
+                new Point(current.x + 1, current.y),
+                new Point(current.x, current.y + 1)
+        };
+        return neighbors;
+    }
+
+    private boolean isImpassable(Point pt) {
+        return WorldController._instance.getTileTypeOfGivenTile(pt.x, pt.y).ID == 0;
+    }
+
+    private int getChangeInHealthFromTile(Point pt) {
+        TileType tileType =  WorldController._instance.getTileTypeOfGivenTile(pt.x, pt.y);
+        int change = 0;
+        for(AbstractEffect ae : tileType.getEffects()) {
+            if(ae.effectsHealth()) {
+                change += ae.getMagnitude();
+            }
+        }
+        return change;
     }
 }

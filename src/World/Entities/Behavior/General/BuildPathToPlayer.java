@@ -24,7 +24,7 @@ public class BuildPathToPlayer extends AbstractBehavior {
         }
 
         AbstractMob mob = (AbstractMob) bb.get("This");
-        AStarPath path = new AStarPath(mob, WorldController._instance.player);
+        AStarPath path = new AStarPath(mob, WorldController._instance.player, mob);
         if(path.succeeded) {
             bb.put("Path", path.path);
             return 1;

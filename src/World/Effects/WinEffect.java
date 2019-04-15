@@ -8,4 +8,9 @@ public class WinEffect extends AbstractEffect {
         WorldController._instance.incrementScore();
         WorldController._instance.resetMap = true;
     }
+
+    @Override
+    public boolean effectsHealth() {
+        return false;
+    }
 }
