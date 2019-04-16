@@ -13,11 +13,14 @@ public class Projectiles {
   private int changex;
   private int changey;
 
+  public boolean hitSomething;
+
   Projectiles(int currentx, int currenty, int changex, int changey) {
     this.currentx = currentx;
     this.currenty = currenty;
     this.changex = changex;
     this.changey = changey;
+    hitSomething = false;
   }
 
 
@@ -25,8 +28,6 @@ public class Projectiles {
   public void draw() {
     PApplet sketch = WorldController._instance.sketch;
     sketch.ellipse(currentx, currenty, 10, 10);
-    currentx += changex;
-    currenty += changey;
   }
 
   public int getCurrentx() {
@@ -35,6 +36,16 @@ public class Projectiles {
 
   public int getCurrenty() {
     return currentx;
+  }
+
+  public void update() {
+    currentx += changex;
+    currenty += changey;
+  }
+
+  public void setHitSomething() {
+    currentx = 10000;
+    currenty = 10000;
   }
 
 

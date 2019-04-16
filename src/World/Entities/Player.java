@@ -82,8 +82,8 @@ public class Player extends AbstractEntity {
      int mouseY = sketch.mouseY;
      Projectiles bullet = new Projectiles(this.getX() * cellDimension + (cellDimension / 2),
              this.getY() * cellDimension + (cellDimension / 2),
-             (mouseX - this.getX() * cellDimension + (cellDimension / 2)) / 15,
-             (mouseY - this.getY() * cellDimension + (cellDimension / 2)) / 15);
+             (mouseX - this.getX() * cellDimension + (cellDimension / 2)) / 10,
+             (mouseY - this.getY() * cellDimension + (cellDimension / 2)) / 10);
 
      WorldController._instance.addBullet(bullet);
   }

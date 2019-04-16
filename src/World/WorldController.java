@@ -70,6 +70,7 @@ public class WorldController {
     this.tileTypes = new ArrayList<>();
     this.mobs = new ArrayList<>();
     this.collectibles = new ArrayList<>();
+    projectiles = new ArrayList<>();
 
     // begin world generation:
     LevelBuilder levelBuilder = new LevelBuilder(this.rand);
@@ -94,7 +95,6 @@ public class WorldController {
     checkCollectibles();
     applyTerrainEffects();
 
-    addProjectileDamage();
     if(this.resetMap) {
       WorldController.reset();
     }
@@ -129,8 +129,11 @@ public class WorldController {
     if (projectiles != null) {
       for (Projectiles p: projectiles) {
         p.draw();
+        p.update();
       }
     }
+    addProjectileDamage();
+
   }
 
   public void incrementScore() {
@@ -221,19 +224,30 @@ public class WorldController {
         int y = p.getCurrenty();
 
 
-        for(AbstractMob mob: mobs) {
-          WorldController._instance.sketch.print(y);
-          WorldController._instance.sketch.print(mob.getY() * cellDimension + (cellDimension / 2));
-          if(x == mob.getX() * cellDimension + (cellDimension / 2) &&
-                  y == mob.getY() * cellDimension + (cellDimension / 2)) {
-            HurtEffect gunshot = new HurtEffect(5);
-            gunshot.applyEffect(x,y);
-            System.out.print("HIT");
-            projectiles.remove(p);
 
+
+        for(AbstractMob mob: mobs) {
+          WorldController._instance.sketch.print(x + " ");
+          WorldController._instance.sketch.print(y +"\n");
+          WorldController._instance.sketch.print(mob.getX() * cellDimension + (cellDimension / 2) + " ");
+          WorldController._instance.sketch.print(mob.getY() * cellDimension + (cellDimension / 2) + "\n");
+          if(((x >= (mob.getX() * cellDimension + (cellDimension / 2)) - 5 &&
+                  (x <= (mob.getX() * cellDimension + (cellDimension / 2)) + 5)) ||
+                  ((y >= (mob.getY() * cellDimension + (cellDimension / 2)) - 5) &&
+                  (y <= (mob.getY() * cellDimension + (cellDimension / 2)) +5)))) {
+            HurtEffect gunshot = new HurtEffect(10);
+            gunshot.applyEffect(mob.getX(),
+
+                    mob.getY());
+
+            int newHealth = mobs.get(0).getHealth();
+            WorldController._instance.sketch.print("HIT new Health: " + newHealth);
+            p.setHitSomething();
+            break;
           }
         }
       }
     }
   }
+
 }
