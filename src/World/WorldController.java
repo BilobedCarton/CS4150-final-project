@@ -10,6 +10,7 @@ import World.Collectibles.HealthPotion;
 import World.Collectibles.Treasure;
 import World.Effects.*;
 import World.Entities.*;
+import World.Entities.Projectiles;
 import World.Tiles.*;
 import World.WorldGeneration.LevelBuilder;
 import processing.core.PApplet;
@@ -39,6 +40,7 @@ public class WorldController {
   private int[][] tiles;
   private List<AbstractMob> mobs;
   private List<CollectibleInstance> collectibles;
+  private List<Projectiles> projectiles;
   private int score;
   public Player player;
 
@@ -91,6 +93,8 @@ public class WorldController {
     }
     checkCollectibles();
     applyTerrainEffects();
+
+    addProjectileDamage();
     if(this.resetMap) {
       WorldController.reset();
     }
@@ -121,6 +125,12 @@ public class WorldController {
       mob.draw();
     }
     player.draw();
+
+    if (projectiles != null) {
+      for (Projectiles p: projectiles) {
+        p.draw();
+      }
+    }
   }
 
   public void incrementScore() {
@@ -189,6 +199,41 @@ public class WorldController {
     TileType tileOn = this.getTileTypeOfGivenTile(player.getX(), player.getY());
     for (AbstractEffect effect : tileOn.getEffects()) {
       effect.applyEffect(player.getX(), player.getY());
+    }
+  }
+
+  public void addBullet(Projectiles p) {
+    if (projectiles != null) {
+      this.projectiles.add(p);
+    } else {
+      ArrayList<Projectiles> newProj = new ArrayList<Projectiles>();
+      newProj.add(p);
+      this.projectiles = newProj;
+    }
+  }
+
+
+  private void addProjectileDamage() {
+
+    if (projectiles != null) {
+      for(Projectiles p: projectiles) {
+        int x = p.getCurrentx();
+        int y = p.getCurrenty();
+
+
+        for(AbstractMob mob: mobs) {
+          WorldController._instance.sketch.print(y);
+          WorldController._instance.sketch.print(mob.getY() * cellDimension + (cellDimension / 2));
+          if(x == mob.getX() * cellDimension + (cellDimension / 2) &&
+                  y == mob.getY() * cellDimension + (cellDimension / 2)) {
+            HurtEffect gunshot = new HurtEffect(5);
+            gunshot.applyEffect(x,y);
+            System.out.print("HIT");
+            projectiles.remove(p);
+
+          }
+        }
+      }
     }
   }
 }

@@ -14,7 +14,7 @@ public class Sketch extends PApplet {
   private static int MAP_HEIGHT = 645;
   private static int CELL_DIMENSION = 15;
   private static WorldController wc;
-  private final List<Character> validInputs = Arrays.asList(new Character[]{'w', 'a', 's', 'd'});
+  private final List<Character> validInputs = Arrays.asList(new Character[]{'w', 'a', 's', 'd', 'f'});
 
   public Sketch(String seed) {
     super();

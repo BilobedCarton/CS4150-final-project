@@ -3,6 +3,7 @@ package World.Entities;
 import World.WorldController;
 
 import java.awt.*;
+import processing.core.PApplet;
 
 public class Player extends AbstractEntity {
   public enum moveDirection {
@@ -29,6 +30,10 @@ public class Player extends AbstractEntity {
         break;
       case 'd':
         movePlayer(moveDirection.RIGHT);
+        break;
+
+      case 'f':
+        fireWeapon();
         break;
       default:
         break;
@@ -65,5 +70,21 @@ public class Player extends AbstractEntity {
     else {
       this.move(newX, newY);
     }
+  }
+
+
+  public void fireWeapon() {
+     PApplet sketch = WorldController._instance.sketch;
+
+     int cellDimension = WorldController._instance.cellDimension;
+
+     int mouseX = sketch.mouseX;
+     int mouseY = sketch.mouseY;
+     Projectiles bullet = new Projectiles(this.getX() * cellDimension + (cellDimension / 2),
+             this.getY() * cellDimension + (cellDimension / 2),
+             (mouseX - this.getX() * cellDimension + (cellDimension / 2)) / 15,
+             (mouseY - this.getY() * cellDimension + (cellDimension / 2)) / 15);
+
+     WorldController._instance.addBullet(bullet);
   }
 }
