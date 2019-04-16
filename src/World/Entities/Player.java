@@ -4,6 +4,7 @@ import World.WorldController;
 
 import java.awt.*;
 import processing.core.PApplet;
+import processing.core.PVector;
 
 public class Player extends AbstractEntity {
   public enum moveDirection {
@@ -31,7 +32,6 @@ public class Player extends AbstractEntity {
       case 'd':
         movePlayer(moveDirection.RIGHT);
         break;
-
       case 'f':
         fireWeapon();
         break;
@@ -75,16 +75,14 @@ public class Player extends AbstractEntity {
 
   public void fireWeapon() {
      PApplet sketch = WorldController._instance.sketch;
-
      int cellDimension = WorldController._instance.cellDimension;
 
-     int mouseX = sketch.mouseX;
-     int mouseY = sketch.mouseY;
-     Projectiles bullet = new Projectiles(this.getX() * cellDimension + (cellDimension / 2),
-             this.getY() * cellDimension + (cellDimension / 2),
-             (mouseX - this.getX() * cellDimension + (cellDimension / 2)) / 10,
-             (mouseY - this.getY() * cellDimension + (cellDimension / 2)) / 10);
-
-     WorldController._instance.addBullet(bullet);
+     PVector location = new PVector(this.getX() * cellDimension + (cellDimension / 2), this.getY() * cellDimension + (cellDimension / 2));
+     PVector lookingAt = new PVector(sketch.mouseX, sketch.mouseY);
+     PVector facingVector = lookingAt.copy().sub(location).normalize().mult(cellDimension);
+     float heading = facingVector.heading();
+     Projectile projectile = new Projectile(this.getX() * cellDimension + (cellDimension / 2) + (int)facingVector.x,
+             this.getY() * cellDimension + (cellDimension / 2) + (int)facingVector.y, heading, 10);
+     WorldController._instance.addProjectile(projectile);
   }
 }

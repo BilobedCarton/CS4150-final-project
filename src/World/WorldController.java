@@ -10,7 +10,7 @@ import World.Collectibles.HealthPotion;
 import World.Collectibles.Treasure;
 import World.Effects.*;
 import World.Entities.*;
-import World.Entities.Projectiles;
+import World.Entities.Projectile;
 import World.Tiles.*;
 import World.WorldGeneration.LevelBuilder;
 import processing.core.PApplet;
@@ -40,7 +40,7 @@ public class WorldController {
   private int[][] tiles;
   private List<AbstractMob> mobs;
   private List<CollectibleInstance> collectibles;
-  private List<Projectiles> projectiles;
+  private List<Projectile> projectiles;
   private int score;
   public Player player;
 
@@ -70,7 +70,7 @@ public class WorldController {
     this.tileTypes = new ArrayList<>();
     this.mobs = new ArrayList<>();
     this.collectibles = new ArrayList<>();
-    projectiles = new ArrayList<>();
+    this.projectiles = new ArrayList<>();
 
     // begin world generation:
     LevelBuilder levelBuilder = new LevelBuilder(this.rand);
@@ -83,6 +83,7 @@ public class WorldController {
 
   public void executeTick() {
     ArrayList<AbstractMob> mobsToBeDeleted = new ArrayList<>();
+    ArrayList<Projectile> projectilesToBeDeleted = new ArrayList<>();
     for(AbstractMob mob : mobs) {
       mob.executeBehavior();
       if(mob.isAlive() == false) {
@@ -94,7 +95,17 @@ public class WorldController {
     }
     checkCollectibles();
     applyTerrainEffects();
-
+    for(Projectile p : projectiles) {
+      p.update();
+    }
+    for(Projectile p : projectiles) {
+      if(p.hitSomething()) {
+        projectilesToBeDeleted.add(p);
+      }
+    }
+    for(Projectile pToBeDeleted : projectilesToBeDeleted) {
+      projectiles.remove(pToBeDeleted);
+    }
     if(this.resetMap) {
       WorldController.reset();
     }
@@ -125,15 +136,9 @@ public class WorldController {
       mob.draw();
     }
     player.draw();
-
-    if (projectiles != null) {
-      for (Projectiles p: projectiles) {
-        p.draw();
-        p.update();
-      }
+    for (Projectile p: projectiles) {
+      p.draw();
     }
-    addProjectileDamage();
-
   }
 
   public void incrementScore() {
@@ -162,8 +167,16 @@ public class WorldController {
     return tileTypes.get(tiles[x][y]);
   }
 
+  public Point getPointAtPixelCoordinates(int x, int y) {
+    return new Point((int)Math.floor((float)x / (float) cellDimension), (int)Math.floor((float)y / (float) cellDimension));
+  }
+
   public void addMob(AbstractMob mob) {
     this.mobs.add(mob);
+  }
+
+  public void addProjectile(Projectile p) {
+    this.projectiles.add(p);
   }
 
   // Generates the TileType objects we use to represent types of terrain
@@ -204,50 +217,4 @@ public class WorldController {
       effect.applyEffect(player.getX(), player.getY());
     }
   }
-
-  public void addBullet(Projectiles p) {
-    if (projectiles != null) {
-      this.projectiles.add(p);
-    } else {
-      ArrayList<Projectiles> newProj = new ArrayList<Projectiles>();
-      newProj.add(p);
-      this.projectiles = newProj;
-    }
-  }
-
-
-  private void addProjectileDamage() {
-
-    if (projectiles != null) {
-      for(Projectiles p: projectiles) {
-        int x = p.getCurrentx();
-        int y = p.getCurrenty();
-
-
-
-
-        for(AbstractMob mob: mobs) {
-          WorldController._instance.sketch.print(x + " ");
-          WorldController._instance.sketch.print(y +"\n");
-          WorldController._instance.sketch.print(mob.getX() * cellDimension + (cellDimension / 2) + " ");
-          WorldController._instance.sketch.print(mob.getY() * cellDimension + (cellDimension / 2) + "\n");
-          if(((x >= (mob.getX() * cellDimension + (cellDimension / 2)) - 5 &&
-                  (x <= (mob.getX() * cellDimension + (cellDimension / 2)) + 5)) ||
-                  ((y >= (mob.getY() * cellDimension + (cellDimension / 2)) - 5) &&
-                  (y <= (mob.getY() * cellDimension + (cellDimension / 2)) +5)))) {
-            HurtEffect gunshot = new HurtEffect(10);
-            gunshot.applyEffect(mob.getX(),
-
-                    mob.getY());
-
-            int newHealth = mobs.get(0).getHealth();
-            WorldController._instance.sketch.print("HIT new Health: " + newHealth);
-            p.setHitSomething();
-            break;
-          }
-        }
-      }
-    }
-  }
-
 }

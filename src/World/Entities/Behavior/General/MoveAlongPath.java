@@ -3,7 +3,6 @@ package World.Entities.Behavior.General;
 import World.Entities.AbstractMob;
 import World.Entities.Behavior.AbstractBehavior;
 import World.Entities.Behavior.Blackboard;
-import World.Entities.Utilities.AStarPath;
 import World.WorldController;
 
 import java.awt.*;
