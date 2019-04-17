@@ -29,8 +29,6 @@ public class LevelBuilder {
     return map;
   }
 
-  // map creation based upon techniques applied in the following video by Sebastian Lague:
-  // https://www.youtube.com/watch?v=v7yyZZjF1z4&list=PLFt_AvWsXl0eZgMK_DT5_biRkWXftAOf9
   public void buildLevel(List<TileType> tileTypes, List<CollectiblePrototype> collectiblePrototypes) {
     this.buildSimpleMap(rand.nextInt(5) + 42);
     for(int i = 0; i < SMOOTH_PASSES; i++) {
@@ -117,6 +115,8 @@ public class LevelBuilder {
     return openCornerPoints;
   }
 
+  // Wall and Floor assignment based upon techniques applied in the following video by Sebastian Lague:
+  // https://www.youtube.com/watch?v=v7yyZZjF1z4&list=PLFt_AvWsXl0eZgMK_DT5_biRkWXftAOf9
   private void buildSimpleMap(int fillPercent) {
     fillPercent = Math.abs(fillPercent) > 100 ? 100 : Math.abs(fillPercent);
     for(int x = 0; x < width; x++) {
@@ -131,6 +131,8 @@ public class LevelBuilder {
     }
   }
 
+  // Wall and Floor assignment based upon techniques applied in the following video by Sebastian Lague:
+  // https://www.youtube.com/watch?v=v7yyZZjF1z4&list=PLFt_AvWsXl0eZgMK_DT5_biRkWXftAOf9
   private void smoothMapWalls() {
     for(int x = 0; x < width; x++) {
       for(int y = 0; y < height; y++) {
@@ -159,6 +161,7 @@ public class LevelBuilder {
     return 8 - count;
   }
 
+  // Simple noise function to assign tile types.
   private void assignTileTypes(List<TileType> tileTypes) {
     double[][][] tileTypeProbabilities = new double[width][height][tileTypes.size()];
     for(int x = 0; x < width; x++) {
@@ -205,6 +208,7 @@ public class LevelBuilder {
     }
   }
 
+  // Smooths tile types in similar process to smoothing walls.
   private void smoothMapTiles(List<TileType> tileTypes) {
     for(int x = 0; x < width; x++) {
       for(int y = 0; y < height; y++) {
