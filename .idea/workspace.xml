@@ -7,7 +7,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="403b22ba-f62e-4bee-ac65-74d04928498c" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/World/WorldGeneration/LevelBuilder.java" afterPath="$PROJECT_DIR$/src/World/WorldGeneration/LevelBuilder.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/readme.txt" afterPath="$PROJECT_DIR$/readme.txt" />
     </list>
     <ignored path=".idea/" />
     <ignored path="$PROJECT_DIR$/out/" />
@@ -57,11 +57,21 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="LevelBuilder.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="LevelBuilder.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/World/WorldGeneration/LevelBuilder.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="3417">
               <caret line="210" column="62" lean-forward="false" selection-start-line="210" selection-start-column="62" selection-end-line="210" selection-end-column="62" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="readme.txt" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/readme.txt">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="187">
+              <caret line="11" column="121" lean-forward="false" selection-start-line="11" selection-start-column="121" selection-end-line="11" selection-end-column="121" />
               <folding />
             </state>
           </provider>
@@ -129,7 +139,6 @@
         <option value="$PROJECT_DIR$/src/World/Entities/Behavior/General/Selector.java" />
         <option value="$PROJECT_DIR$/src/World/Entities/Behavior/General/Sequence.java" />
         <option value="$PROJECT_DIR$/src/World/Entities/Mobs/Ranged.java" />
-        <option value="$PROJECT_DIR$/readme.txt" />
         <option value="$PROJECT_DIR$/src/World/Effects/WinEffect.java" />
         <option value="$PROJECT_DIR$/src/World/Effects/AbstractEffect.java" />
         <option value="$PROJECT_DIR$/src/World/Effects/HurtEffect.java" />
@@ -160,6 +169,7 @@
         <option value="$PROJECT_DIR$/src/World/Entities/Behavior/BehaviorTreeLibrary.java" />
         <option value="$PROJECT_DIR$/src/World/WorldController.java" />
         <option value="$PROJECT_DIR$/src/World/WorldGeneration/LevelBuilder.java" />
+        <option value="$PROJECT_DIR$/readme.txt" />
       </list>
     </option>
   </component>
@@ -622,13 +632,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/readme.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="357">
-          <caret line="21" column="0" lean-forward="false" selection-start-line="21" selection-start-column="0" selection-end-line="21" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/World/Entities/Mobs/Ranged.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="306">
@@ -983,6 +986,14 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="3417">
           <caret line="210" column="62" lean-forward="false" selection-start-line="210" selection-start-column="62" selection-end-line="210" selection-end-column="62" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/readme.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="11" column="121" lean-forward="false" selection-start-line="11" selection-start-column="121" selection-end-line="11" selection-end-column="121" />
           <folding />
         </state>
       </provider>
