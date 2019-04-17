@@ -22,6 +22,7 @@ public class Engage extends AbstractBehavior {
             System.out.println("Debug - Setting engagement to true for mob");
         }
         ((AbstractMob) this.bb.get("This")).engage();
+        this.bb.put("Enemy", WorldController._instance.player);
         return 1;
     }
 }

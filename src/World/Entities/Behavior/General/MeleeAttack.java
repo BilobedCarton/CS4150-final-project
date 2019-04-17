@@ -3,9 +3,10 @@ package World.Entities.Behavior.General;
 import World.Entities.AbstractMob;
 import World.Entities.Behavior.AbstractBehavior;
 import World.Entities.Behavior.Blackboard;
+import World.Entities.Player;
 
-public class CanAttack extends AbstractBehavior {
-    public CanAttack(Blackboard bb) {
+public class MeleeAttack extends AbstractBehavior {
+    public MeleeAttack(Blackboard bb) {
         super(bb);
     }
 
@@ -18,6 +19,11 @@ public class CanAttack extends AbstractBehavior {
     @Override
     public int execute() {
         AbstractMob mob = (AbstractMob) bb.get("This");
-        return mob.canAttack() ? 1 : 0;
+        Player player = (Player) bb.getOrNull("Enemy");
+        if(player != null) {
+            player.changeHealth(-mob.getMeleeDamage());
+            return 1;
+        }
+        return 0;
     }
 }

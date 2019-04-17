@@ -15,7 +15,7 @@ public class Player extends AbstractEntity {
   }
 
   public Player(int x, int y) {
-    super(x, y, 100, 1, Color.WHITE);
+    super(x, y, 200, 1, Color.WHITE);
   }
 
   public void updateOrientation() {

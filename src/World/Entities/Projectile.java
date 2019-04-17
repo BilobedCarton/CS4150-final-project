@@ -19,7 +19,7 @@ public class Projectile {
 
   private boolean hitSomething;
 
-  Projectile(int currentX, int currentY, float heading, int damage) {
+  public Projectile(int currentX, int currentY, float heading, int damage) {
     this.currentX = currentX;
     this.currentY = currentY;
     this.heading = heading;
@@ -54,6 +54,10 @@ public class Projectile {
     }
     this.currentX += velocity.x;
     this.currentY += velocity.y;
+    if(this.checkHitSomething()) {
+      this.applyHit();
+      return;
+    }
   }
 
   public boolean hitSomething() {

@@ -37,6 +37,10 @@ public abstract class AbstractMob extends AbstractEntity {
         return rangedDamage;
     }
 
+    public void resetReloadProgress() {
+        this.reloadProgress = 0;
+    }
+
     public void incrementReload() {
         this.reloadProgress++;
         this.reloadProgress = Math.min(this.reloadProgress, RELOAD_CAP);

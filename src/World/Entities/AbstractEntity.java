@@ -46,6 +46,10 @@ public abstract class AbstractEntity {
     return y;
   }
 
+  public int getMaxHealth() {
+    return maxHealth;
+  }
+
   public int getHealth() {
     return health;
   }
@@ -88,7 +92,14 @@ public abstract class AbstractEntity {
       PApplet sketch = WorldController._instance.sketch;
       int cellDimension = WorldController._instance.cellDimension;
       sketch.stroke(Color.BLACK.getRed(), Color.BLACK.getGreen(), Color.BLACK.getBlue());
-      sketch.fill(color.getRed(), color.getGreen(), color.getBlue());
+      Color fillColor = color.darker();
+      if(this.health > 3 * this.maxHealth / 4) {
+        fillColor = fillColor.darker();
+      }
+      else if(this.health < this.maxHealth / 4) {
+        fillColor = fillColor.brighter();
+      }
+      sketch.fill(fillColor.getRed(), fillColor.getGreen(), fillColor.getBlue());
       sketch.ellipse(
               this.getX() * cellDimension + (cellDimension / 2),
               this.getY() * cellDimension + (cellDimension / 2),
