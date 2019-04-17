@@ -9,18 +9,20 @@ public class BehaviorTreeLibrary {
                 bb, new Selector(
                         bb, new IsEngaged(bb), new Engage(bb)
                 ),
-                new FacePlayer(bb),
-                new Selector(
+                new Parallel(bb,
+                    new FacePlayer(bb),
+                    new Selector(
                         bb, new CanSeePlayer(bb), new Sequence(
                                 bb, new BuildPathToPlayer(bb), new HasPathToPlayer(bb), new PickRangedSpot(bb), new MoveAlongPath(bb)
                         )
-                ),
-                new Sequence(
-                        bb, new CanSeePlayer(bb), new Selector(
-                            bb, new CanShoot(bb), new Reload(bb)),
-                        new Selector(
-                                bb, new Sequence(bb, new CanShoot(bb), new Shoot(bb)), new Flee(bb)
-                        )
+                    ),
+                    new Sequence(
+                            bb, new CanSeePlayer(bb), new Selector(
+                                    bb, new CanShoot(bb), new Reload(bb)),
+                            new Selector(
+                                    bb, new Sequence(bb, new CanShoot(bb), new Shoot(bb)), new Flee(bb)
+                            )
+                    )
                 )
         );
     }
@@ -30,19 +32,16 @@ public class BehaviorTreeLibrary {
                 bb, new Selector(
                         bb, new IsEngaged(bb), new Engage(bb)
                 ),
-                new FacePlayer(bb),
-                new Selector(
-                        bb, new Sequence(
-                                bb, new IsBelowQuarterHealth(bb), new Flee(bb)
-                        ),
+                new Parallel(
+                        bb, new FacePlayer(bb),
                         new Selector(
                                 bb, new IsAdjacentToPlayer(bb), new Sequence(
-                                    bb, new BuildPathToPlayer(bb), new HasPathToPlayer(bb), new PickMeleeSpot(bb), new MoveAlongPath(bb)
+                                        bb, new BuildPathToPlayer(bb), new HasPathToPlayer(bb), new PickMeleeSpot(bb), new MoveAlongPath(bb)
                                 )
-                        ),
-                        new Sequence(
-                            bb, new CanMeleeAttack(bb), new MeleeAttack(bb)
                         )
+                ),
+                new Sequence(
+                        bb, new CanMeleeAttack(bb), new MeleeAttack(bb)
                 )
         );
     }

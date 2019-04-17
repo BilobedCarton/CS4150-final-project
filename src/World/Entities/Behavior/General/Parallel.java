@@ -25,14 +25,16 @@ public class Parallel extends AbstractBehavior {
             if(returned == 0) {
                 result = 0;
                 for(Thread t : threads) {
-                    t.interrupt();
+                    if(t.getId() != Thread.currentThread().getId()) {
+                        t.interrupt();
+                        latch.countDown();
+                    }
                 }
-                return;
             }
             else if(runningChildren.size() == 0) {
                 result = 1;
-                return;
             }
+            latch.countDown();
         }
     }
 
@@ -40,6 +42,7 @@ public class Parallel extends AbstractBehavior {
     private List<AbstractBehavior> runningChildren = new ArrayList<>();
     private List<Thread> threads = new ArrayList<>();
     private int result = -1;
+    private CountDownLatch latch;
 
     public Parallel(Blackboard bb, AbstractBehavior... children) {
         super(bb);
@@ -60,10 +63,11 @@ public class Parallel extends AbstractBehavior {
         if(WorldController._instance.DEBUG_MODE) {
             System.out.println("Debug - Executing tasks in parallel");
         }
-        CountDownLatch latch = new CountDownLatch(children.size());
+        latch = new CountDownLatch(children.size());
         for(AbstractBehavior child : children) {
             BehaviorRunnable childRunnable = new BehaviorRunnable(child);
             Thread thread = new Thread(childRunnable);
+            threads.add(thread);
             thread.start();
         }
         try {
