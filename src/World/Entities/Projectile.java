@@ -43,6 +43,14 @@ public class Projectile {
     return currentY;
   }
 
+  public float getHeading() {
+    return heading;
+  }
+
+  public static int getSpeed() {
+    return Projectile.speed;
+  }
+
   public void update() {
     int cellDimension = WorldController._instance.cellDimension;
     PVector velocity = (new PVector(cellDimension, 0)).rotate(heading);

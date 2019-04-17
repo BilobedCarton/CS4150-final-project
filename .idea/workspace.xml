@@ -7,14 +7,18 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="403b22ba-f62e-4bee-ac65-74d04928498c" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/World/Entities/Behavior/General/Dodge.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/World/Entities/Behavior/General/WillBeHitByBullet.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/artifacts/CS4150FinalProject_jar/CS4150FinalProject.jar" afterPath="$PROJECT_DIR$/out/artifacts/CS4150FinalProject_jar/CS4150FinalProject.jar" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/CS4150FinalProject/World/Entities/AbstractMob.class" afterPath="$PROJECT_DIR$/out/production/CS4150FinalProject/World/Entities/AbstractMob.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/CS4150FinalProject/World/Entities/Behavior/BehaviorTreeLibrary.class" afterPath="$PROJECT_DIR$/out/production/CS4150FinalProject/World/Entities/Behavior/BehaviorTreeLibrary.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/CS4150FinalProject/World/Entities/Behavior/General/Parallel$BehaviorRunnable.class" afterPath="$PROJECT_DIR$/out/production/CS4150FinalProject/World/Entities/Behavior/General/Parallel$BehaviorRunnable.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/CS4150FinalProject/World/Entities/Behavior/General/Parallel.class" afterPath="$PROJECT_DIR$/out/production/CS4150FinalProject/World/Entities/Behavior/General/Parallel.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/CS4150FinalProject/World/Entities/Projectile.class" afterPath="$PROJECT_DIR$/out/production/CS4150FinalProject/World/Entities/Projectile.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/CS4150FinalProject/World/WorldController.class" afterPath="$PROJECT_DIR$/out/production/CS4150FinalProject/World/WorldController.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/World/Entities/AbstractMob.java" afterPath="$PROJECT_DIR$/src/World/Entities/AbstractMob.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/World/Entities/Behavior/BehaviorTreeLibrary.java" afterPath="$PROJECT_DIR$/src/World/Entities/Behavior/BehaviorTreeLibrary.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/World/Entities/Behavior/General/Parallel.java" afterPath="$PROJECT_DIR$/src/World/Entities/Behavior/General/Parallel.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/World/Entities/Projectile.java" afterPath="$PROJECT_DIR$/src/World/Entities/Projectile.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/World/WorldController.java" afterPath="$PROJECT_DIR$/src/World/WorldController.java" />
     </list>
     <ignored path=".idea/" />
     <ignored path="$PROJECT_DIR$/out/" />
@@ -49,26 +53,26 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="WorldController.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="WorldController.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/World/WorldController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="453">
-              <caret line="61" column="21" lean-forward="true" selection-start-line="61" selection-start-column="21" selection-end-line="61" selection-end-column="21" />
+            <state relative-caret-position="445">
+              <caret line="179" column="52" lean-forward="false" selection-start-line="179" selection-start-column="52" selection-end-line="179" selection-end-column="52" />
               <folding>
                 <element signature="e#4893#4894#0" expanded="true" />
                 <element signature="e#4936#4937#0" expanded="true" />
-                <element signature="e#5237#5238#0" expanded="true" />
-                <element signature="e#5270#5271#0" expanded="true" />
+                <element signature="e#5415#5416#0" expanded="true" />
+                <element signature="e#5448#5449#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Projectile.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/World/Entities/Projectile.java">
+      <file leaf-file-name="AbstractMob.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/World/Entities/AbstractMob.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="357">
-              <caret line="21" column="9" lean-forward="false" selection-start-line="21" selection-start-column="9" selection-end-line="21" selection-end-column="9" />
+            <state relative-caret-position="204">
+              <caret line="17" column="43" lean-forward="false" selection-start-line="17" selection-start-column="43" selection-end-line="17" selection-end-column="43" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -76,37 +80,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="AbstractEntity.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/World/Entities/AbstractEntity.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="429">
-              <caret line="49" column="4" lean-forward="false" selection-start-line="49" selection-start-column="4" selection-end-line="49" selection-end-column="21" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#886#887#0" expanded="true" />
-                <element signature="e#912#913#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="FacePlayer.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/World/Entities/Behavior/General/FacePlayer.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="425">
-              <caret line="27" column="0" lean-forward="false" selection-start-line="27" selection-start-column="0" selection-end-line="27" selection-end-column="0" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="BehaviorTreeLibrary.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="BehaviorTreeLibrary.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/World/Entities/Behavior/BehaviorTreeLibrary.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="408">
-              <caret line="24" column="21" lean-forward="true" selection-start-line="24" selection-start-column="21" selection-end-line="24" selection-end-column="21" />
+            <state relative-caret-position="578">
+              <caret line="34" column="29" lean-forward="true" selection-start-line="34" selection-start-column="29" selection-end-line="34" selection-end-column="29" />
               <folding />
             </state>
           </provider>
@@ -132,8 +110,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/World/Entities/Behavior/SustainedBehaviorTypes.java" />
-        <option value="$PROJECT_DIR$/src/World/Entities/Blackboard.java" />
         <option value="$PROJECT_DIR$/src/World/Entities/Behavior/General/Arrive.java" />
         <option value="$PROJECT_DIR$/src/World/Entities/Behavior/General/Aim.java" />
         <option value="$PROJECT_DIR$/src/World/Entities/Behavior/General/Hit.java" />
@@ -173,16 +149,18 @@
         <option value="$PROJECT_DIR$/src/World/Entities/Behavior/General/MeleeAttack.java" />
         <option value="$PROJECT_DIR$/src/World/Entities/Behavior/General/MoveAlongPath.java" />
         <option value="$PROJECT_DIR$/src/World/Entities/Behavior/General/CanMeleeAttack.java" />
-        <option value="$PROJECT_DIR$/src/World/Entities/Projectile.java" />
         <option value="$PROJECT_DIR$/src/World/Entities/Behavior/General/Shoot.java" />
         <option value="$PROJECT_DIR$/src/World/Entities/Player.java" />
         <option value="$PROJECT_DIR$/src/World/Entities/AbstractEntity.java" />
         <option value="$PROJECT_DIR$/src/World/Entities/Behavior/General/IsBelowQuarterHealth.java" />
         <option value="$PROJECT_DIR$/src/World/Entities/Behavior/General/Flee.java" />
-        <option value="$PROJECT_DIR$/src/World/Entities/AbstractMob.java" />
-        <option value="$PROJECT_DIR$/src/World/WorldController.java" />
         <option value="$PROJECT_DIR$/src/World/Entities/Behavior/General/Parallel.java" />
+        <option value="$PROJECT_DIR$/src/World/Entities/AbstractMob.java" />
+        <option value="$PROJECT_DIR$/src/World/Entities/Projectile.java" />
+        <option value="$PROJECT_DIR$/src/World/Entities/Behavior/General/WillBeHitByBullet.java" />
+        <option value="$PROJECT_DIR$/src/World/Entities/Behavior/General/Dodge.java" />
         <option value="$PROJECT_DIR$/src/World/Entities/Behavior/BehaviorTreeLibrary.java" />
+        <option value="$PROJECT_DIR$/src/World/WorldController.java" />
       </list>
     </option>
   </component>
@@ -517,7 +495,7 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/World/Entities/Projectile.java</url>
-          <line>46</line>
+          <line>54</line>
           <properties />
           <option name="timeStamp" value="72" />
         </line-breakpoint>
@@ -527,8 +505,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/World/Entities/Behavior/General/Aim.java" />
-    <entry file="file://$PROJECT_DIR$/src/World/Entities/Behavior/General/Hit.java" />
     <entry file="file://$PROJECT_DIR$/src/World/Entities/Behavior/General/Buff.java" />
     <entry file="file://$PROJECT_DIR$/src/World/WorldGeneration/LevelBuilder.java">
       <provider selected="true" editor-type-id="text-editor">
@@ -708,7 +684,7 @@
         <state relative-caret-position="476">
           <caret line="32" column="0" lean-forward="true" selection-start-line="32" selection-start-column="0" selection-end-line="32" selection-end-column="0" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="imports" expanded="false" />
             <element signature="e#545#546#0" expanded="false" />
             <element signature="e#566#567#0" expanded="false" />
           </folding>
@@ -875,46 +851,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/World/Entities/Behavior/General/Flee.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="582">
-          <caret line="52" column="9" lean-forward="true" selection-start-line="52" selection-start-column="9" selection-end-line="52" selection-end-column="9" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/World/Entities/AbstractMob.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
-          <caret line="17" column="43" lean-forward="false" selection-start-line="17" selection-start-column="43" selection-end-line="17" selection-end-column="43" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#1019#1020#0" expanded="true" />
-            <element signature="e#1054#1055#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/World/Entities/Player.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-153">
           <caret line="17" column="17" lean-forward="false" selection-start-line="17" selection-start-column="17" selection-end-line="17" selection-end-column="17" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/World/WorldController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="453">
-          <caret line="61" column="21" lean-forward="true" selection-start-line="61" selection-start-column="21" selection-end-line="61" selection-end-column="21" />
-          <folding>
-            <element signature="e#4893#4894#0" expanded="true" />
-            <element signature="e#4936#4937#0" expanded="true" />
-            <element signature="e#5237#5238#0" expanded="true" />
-            <element signature="e#5270#5271#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -970,21 +911,82 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/World/Entities/Behavior/General/WillBeHitByBullet.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="782">
+          <caret line="46" column="0" lean-forward="true" selection-start-line="46" selection-start-column="0" selection-end-line="46" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#388#389#0" expanded="true" />
+            <element signature="e#413#414#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/World/Entities/Projectile.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="357">
-          <caret line="21" column="9" lean-forward="false" selection-start-line="21" selection-start-column="9" selection-end-line="21" selection-end-column="9" />
+        <state relative-caret-position="164">
+          <caret line="54" column="64" lean-forward="false" selection-start-line="54" selection-start-column="64" selection-end-line="55" selection-end-column="71" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#1087#1088#0" expanded="true" />
+            <element signature="e#1111#1112#0" expanded="true" />
+            <element signature="e#1145#1146#0" expanded="true" />
+            <element signature="e#1178#1179#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/World/Entities/AbstractMob.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="17" column="43" lean-forward="false" selection-start-line="17" selection-start-column="43" selection-end-line="17" selection-end-column="43" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/World/Entities/Behavior/General/Flee.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="718">
+          <caret line="64" column="4" lean-forward="false" selection-start-line="64" selection-start-column="4" selection-end-line="73" selection-end-column="5" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/World/Entities/Behavior/General/Dodge.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="646">
+          <caret line="50" column="17" lean-forward="false" selection-start-line="50" selection-start-column="17" selection-end-line="50" selection-end-column="17" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#422#423#0" expanded="true" />
+            <element signature="e#447#448#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/World/Entities/Behavior/BehaviorTreeLibrary.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="408">
-          <caret line="24" column="21" lean-forward="true" selection-start-line="24" selection-start-column="21" selection-end-line="24" selection-end-column="21" />
+        <state relative-caret-position="578">
+          <caret line="34" column="29" lean-forward="true" selection-start-line="34" selection-start-column="29" selection-end-line="34" selection-end-column="29" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/World/WorldController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="445">
+          <caret line="179" column="52" lean-forward="false" selection-start-line="179" selection-start-column="52" selection-end-line="179" selection-end-column="52" />
+          <folding>
+            <element signature="e#4893#4894#0" expanded="true" />
+            <element signature="e#4936#4937#0" expanded="true" />
+            <element signature="e#5415#5416#0" expanded="true" />
+            <element signature="e#5448#5449#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

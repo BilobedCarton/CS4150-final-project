@@ -175,6 +175,11 @@ public class WorldController {
     return new Point((int)Math.floor((float)x / (float) cellDimension), (int)Math.floor((float)y / (float) cellDimension));
   }
 
+  public Projectile[] getProjectiles() {
+    Projectile[] projectilesArray = new Projectile[this.projectiles.size()];
+    return this.projectiles.toArray(projectilesArray);
+  }
+
   public void addMob(AbstractMob mob) {
     this.mobs.add(mob);
   }
