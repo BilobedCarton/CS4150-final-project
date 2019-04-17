@@ -32,7 +32,7 @@ public class FacePlayer extends AbstractBehavior {
         }
         else {
             mob.changeOrientation(vectorToPlayer.heading());
-            return 2;
+            return 1;
         }
     }
 }

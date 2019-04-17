@@ -94,6 +94,10 @@ public abstract class AbstractEntity {
               this.getY() * cellDimension + (cellDimension / 2),
               cellDimension - 1,
               cellDimension - 1);
+      sketch.line(this.getX() * cellDimension + (cellDimension / 2),
+              this.getY() * cellDimension + (cellDimension / 2),
+              this.getX() * cellDimension + (cellDimension / 2) + (int)(Math.cos(orientation) * (cellDimension / 2)),
+              this.getY() * cellDimension + (cellDimension / 2) + (int)(Math.sin(orientation) * (cellDimension / 2)));
     }
   }
 

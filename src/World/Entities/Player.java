@@ -18,6 +18,16 @@ public class Player extends AbstractEntity {
     super(x, y, 100, 1, Color.WHITE);
   }
 
+  public void updateOrientation() {
+    PApplet sketch = WorldController._instance.sketch;
+    int cellDimension = WorldController._instance.cellDimension;
+
+    PVector location = new PVector(this.getX() * cellDimension + (cellDimension / 2), this.getY() * cellDimension + (cellDimension / 2));
+    PVector lookingAt = new PVector(sketch.mouseX, sketch.mouseY);
+    PVector facingVector = lookingAt.copy().sub(location).normalize().mult(cellDimension);
+    this.changeOrientation(facingVector.heading());
+  }
+
   public void parseInput(int keyCode) {
     switch(keyCode) {
       case 'w':

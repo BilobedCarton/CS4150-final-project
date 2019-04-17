@@ -34,6 +34,7 @@ public class Sketch extends PApplet {
   }
 
   public void draw() {
+    wc.player.updateOrientation();
     wc.draw();
   }
 

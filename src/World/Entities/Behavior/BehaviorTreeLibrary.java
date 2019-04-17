@@ -23,11 +23,11 @@ public class BehaviorTreeLibrary {
                 bb, new Selector(
                         bb, new IsEngaged(bb), new Engage(bb)
                 ),
+                new FacePlayer(bb),
                 new Selector(
                         bb, new IsAdjacentToPlayer(bb), new Sequence(
                                 bb, new BuildPathToPlayer(bb), new HasPathToPlayer(bb), new PickMeleeSpot(bb), new MoveAlongPath(bb)
-                        ),
-                        new FacePlayer(bb)
+                        )
                 )
         );
     }
