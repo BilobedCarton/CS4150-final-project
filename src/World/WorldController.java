@@ -106,6 +106,10 @@ public class WorldController {
     for(Projectile pToBeDeleted : projectilesToBeDeleted) {
       projectiles.remove(pToBeDeleted);
     }
+    if(this.player.isAlive() == false) {
+      System.out.println("Game Over - Resetting now.");
+      this.resetMap = true;
+    }
     if(this.resetMap) {
       WorldController.reset();
     }

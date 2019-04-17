@@ -58,7 +58,7 @@ public class Flee extends AbstractBehavior{
         // Base cost is the simple distance to goal from start.
         int cost = Math.abs(goal.x - start.x) + Math.abs(goal.y - start.y);
         // If our health would be changed by stepping onto this point we should consider this as well. Healing is good.
-        cost -= getChangeInHealthFromTile(start);
+        cost += getChangeInHealthFromTile(start);
         return cost;
     }
 

@@ -15,7 +15,7 @@ public abstract class AbstractMob extends AbstractEntity {
     protected int rangedDamage;
     // This is out of 5 - when we hit 5 we are ready to attack again.
     protected int reloadProgress;
-    private static final int RELOAD_CAP = 5;
+    private static final int RELOAD_CAP = 8;
 
     public AbstractMob(int x, int y, int maxHealth, int speed, Color color) {
         super(x, y, maxHealth, speed, color);
